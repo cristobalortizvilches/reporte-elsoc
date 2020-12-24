@@ -1,0 +1,131 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Identificación Política
+¿Se ha modificado la identificación con partidos políticos y coaliciones en los últimos cuatro años?
+
+[Aquí encabezado]
+
+## Identificación con Partidos y Coaliciones
+
+El escenario político chileno ha experimentado importantes cambios durante la última década: modificación al sistema electoral, reducción de las tasas de participación electoral, auge e intensificación de ciclos continuados de protesta social, deceso de antiguas coaliciones políticas y emergencia de nuevos referentes, entre otras cosas más. ¿Cómo evolucionan las identidades políticas en este contexto "líquido"?
+
+
+En la Figura 2.2 se observa las transiciones de identificación por coalición entre 2016 y 2019. En el transcurso de cuatro años, alrededor de dos tercios o más de la población encuestada (en cada ola), no se identifica con alguna coalición. No obstante, hay bastante movimiento debajo de la superficie. Entre el año 2016 y 2018 se observa una transición importante de personas que no se identifican con ninguna colación hacia el Frente Amplio, Chile Vamos, y en menor medida hacia la Nueva Mayoría (ver Figura 2.4). En contraste, entre el 2018 y 2019 la población sin identificación política se ve aumentada de vuelta con flujos similares desde las tres coaliciones.
+
+
+La Figura 2.5 revela que mientras la identificación ideológica de derecha e izquierda tienden a mantener sus porcentajes agregados, el centro crece al tiempo que se reduce la no identificación con la escala de izquierda-derecha. Es decir, se constatan flujos importantes que dan cuenta de una creciente politización el 2019, especialmente en aquellas personas que no se identificaban con ninguna orientación política el 2016. Similar al caso de identificación con coaliciones, se observa una cantidad importante de cambio individual por debajo de los promedios agregados (ver Figura 2.6).
+
+
+
+### 2.1 ¿Cuál de los siguientes partidos políticos representa mejor sus intereses, creencias y valores? Según Ola del Estudio
+```{r echo=FALSE, fig.align='center'}
+g2.1 <- gr.bar.freq(var_x = 'idpart', var_y = 'ola', suma100 = 'y')
+g2.1
+```
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.1, 'var_y')`
+
+### 2.2 ¿Cuál de las siguientes coaliciones políticas representa mejor sus intereses, creencias y valores? Según Ola del Estudio
+```{r echo=FALSE, fig.align='center'}
+g2.2 <- gr.bar.freq(var_x = 'idcoal', var_y = 'ola', suma100 = 'y', data = elsoc_panel_m1, expand=T)
+g2.2
+```
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.2, 'var_y')`
+
+### 2.3 Identificación con partidos políticos, según identificación con coalición política (2019)
+```{r echo=FALSE, fig.align='center'}
+g2.3 <- gr.bar.freq(var_y = 'idpart', var_x = 'idcoal', data = subset(elsoc_panel_m1, ola == 2019 & idcoal != 'Otro'),
+            posicion = 'stack')
+g2.3
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.3, NULL)`
+
+### 2.4 Cambios en identificación con coaliciones políticas, entre 2016 y 2019
+```{r echo=FALSE, fig.align='center'}
+
+g2.4 <- gr.alluvial.freq('idcoal', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2018 | ola == 2019))
+g2.4
+
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.4)`
+
+
+### 2.5 Posición ideológica, según ola de estudio
+```{r echo=FALSE, fig.align='center'}
+g2.5 <- gr.bar.freq(var_x = 'pos_id', var_y = 'ola', suma100 = 'y', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0,.5))
+g2.5
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.5, 'var_y')`
+
+### 2.6 Cambios en Posición ideológica, según ola de estudio
+```{r echo=FALSE, fig.align='center'}
+g2.6 <- gr.alluvial.freq( 'pos_id', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
+g2.6
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.6)`
+
+### 2.7 Porcentaje que se identifica con algún partido o coalición política, según Ola del estudio
+```{r echo=FALSE, fig.align='center'}
+g2.7 <- gr.bar.freq('id_sin', posicion = 'stack')
+g2.7
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.7)`
+
+### 2.8 Cambios en identificación con algún partido o coalición política, según Ola del estudio
+```{r echo=FALSE, fig.align='center'}
+g2.8 <- gr.alluvial.freq('id_sin', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), posicion_leyenda = 'top')
+g2.8
+```
+
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.8)`
+
+### 2.9 Cambios en identificación con algún partido o coalición política entre 2016 y 2019, según grupo etáreo (en 2016)
+```{r echo=FALSE, fig.align='center'}
+g2.9 <- gr.bar.freq(var_y = 'id_sin', var_x = 'edad_w01', 
+            data = elsoc_wide_m1,
+            ponderador = 'ponderador02_w04',
+            posicion = 'stack')
+g2.9
+```
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.9, NULL)`
+
+
+### 2.10 Cambios en identificación con algún partido o coalición política entre 2016 y 2019, según posición ideológica (en 2016)
+```{r echo=FALSE, fig.align='center'}
+g2.10 <- gr.bar.freq(var_y = 'id_sin', var_x = 'pos_id_w01', 
+            data = elsoc_wide_m1,
+            ponderador = 'ponderador02_w04',
+            posicion = 'stack')
+g2.10
+```
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.10, NULL)`
+
+
+### 2.11 Cambios en identificación con algún partido o coalición política entre 2016 y 2019, según interés (en 2016)
+```{r echo=FALSE, fig.align='center'}
+g2.11 <- gr.bar.freq(var_y = 'id_sin', var_x = 'interes_politica_w01', 
+            data = elsoc_wide_m1,
+            ponderador = 'ponderador02_w04',
+            posicion = 'stack')
+g2.11
+```
+
+>  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g2.11, NULL)`

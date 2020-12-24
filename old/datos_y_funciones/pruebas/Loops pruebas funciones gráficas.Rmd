@@ -1,0 +1,119 @@
+---
+title: "RCS2020 Loops pruebas gráficos"
+author: "Carlos D."
+date: "17-08-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(sjmisc)
+library(sjlabelled)
+library(knitr)
+library(kableExtra)
+library(sticky)
+#Sacar Notación científica
+options(scipen=999)
+```
+
+
+
+```{r cargar objetos, include=FALSE}
+
+dir_carlos <- "C:/Users/carlo/Dropbox/RCS2020"
+dir_edgardo <- "C:/Users/edgar/Dropbox/ELSOC_personal/RCS2019"
+
+setwd(dir_carlos)
+
+#Mapa de variables + bases
+load("Colaboracion con academicos/Insumos para discusion/transformacion_variables/datos_a_usar.RData")
+# Funciones
+load("Colaboracion con academicos/Insumos para discusion/funciones/funciones_a_usar.RData")
+```
+
+# PRUEBA CON DISTINTOS PONDERADORES
+
+```{r creacion de objetos P1, }
+confliclase.NM <- filter(MAPA.VAR, n_sub_topico == "5.1")
+
+```
+
+#Muestra 1
+```{r PG1 M1, figures-side, fig.show="hold", out.width="50%", message = FALSE}
+invisible(lapply(confliclase.NM$codigo_longitudinal, gf.bar.pond, diseño= dis_01_m1 ))
+```
+
+# Muestra 2
+
+
+```{r PG1 M2, figures-side, fig.show="hold", out.width="50%", message = FALSE}
+invisible(lapply(confliclase.NM$codigo_longitudinal, gf.bar.pond, diseño= dis_01_m2 ))
+```
+
+# Prueba con 4 categorias
+
+```{r PG2, figures-side, fig.show="hold", out.width="50%", message = FALSE}
+gf.bar.pond("depr")
+
+```
+
+# Prueba con 10 categorias
+
+```{r PG3 objetos}
+desigual.NM <- filter(MAPA.VAR, n_sub_topico == "4.3")
+desigual <- select(elsoc_panel, one_of(desigual.NM$codigo_longitudinal))
+```
+
+
+
+
+
+```{r PG3, figures-side, fig.show="hold", out.width="50%", message = FALSE}
+BAR.desigual.NM <- filter(desigual.NM, codigo_longitudinal %notin% c("d04_01_r", "d04_02_r", "d03_01_r", "d03_02_r"))
+invisible(lapply(BAR.desigual.NM$codigo_longitudinal, bar_freq_lp))
+```
+
+# PRueba con tres
+
+```{r PG4, figures-side, fig.show="hold", out.width="50%", message = FALSE}
+gf.bar.pond("c29")
+```
+
+
+## Recodificacion de valores 1 y 2 como 1 
+
+```{r}
+gf.rec.pond("c01", "educ", rec = "c(3,4,5)=0;c(1,2)=1")
+```
+
+## Probar distintas formas de hacer el llamado a rec
+
+```{r}
+gf.rec.pond("c01", "educ", rec = "c(1,2)=1;c(3,4,5)=0")
+```
+
+## Con otros números de categorías
+
+### 10 categorías en el eje x
+
+
+
+```{r}
+gf.rec.pond("c01", "m01", rec = "c(1,2)=1;c(3,4,5)=0")
+```
+
+### Por demográficos clasicos
+
+```{r}
+gf.rec.pond(var_y = "m16", var_x = "m0_sexo")
+gf.rec.pond(var_y = "m16", var_x = "educ")
+gf.rec.pond(var_y = "m16", var_x = "quintil")
+gf.rec.pond(var_y = "m16", var_x = "idpoli")
+gf.rec.pond(var_y = "c01", var_x = "empleo")
+gf.rec.pond(var_y = "c01", var_x = "clase.sub2")
+
+```
+
+

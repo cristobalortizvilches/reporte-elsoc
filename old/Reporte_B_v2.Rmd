@@ -1,0 +1,1182 @@
+---
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    df_print: default
+    css: ["default","default-fonts","gentle-r.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      seal: false
+      ratio: 16:9 
+      slideNumberFormat: "%current%"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, dpi=300, fig.width=6, fig.height=2.5, cache = FALSE)
+
+library(tidyverse)
+library(sjmisc)
+library(sjlabelled)
+library(knitr)
+library(kableExtra)
+library(sticky)
+library(ggrepel)
+library(ggalluvial)
+library(survey)
+library(spatstat)
+library(readxl)
+library(forcats)
+#Sacar Notación científica
+options(scipen=999)
+```
+
+```{r cargar objetos, include=FALSE}
+dir_edgardo <- "C:/Users/edgar/Dropbox/ELSOC/4_Presentaciones_de_Lanzamientos_y_Eventos_Publicos/15_Lanzamiento_Global_2020"
+dir_monse <- "C:/Users/monse/Dropbox/ELSOC/4_Presentaciones_de_Lanzamientos_y_Eventos_Publicos/15_Lanzamiento_Global_2020" 
+dir_alejo <- "C:/Users/Fondecyt R. Sociales/Dropbox/RCS2020"
+
+setwd(dir_edgardo)
+
+#Mapa de variables + bases
+load("datos_y_funciones/datos_a_usar.RData")
+
+# Funciones
+load("datos_y_funciones/funciones_a_usar.RData")
+
+```
+
+background-image: url("Imagenes/portada.png")
+background-position: center
+background-size: contain
+
+---
+class: middle
+<br>
+<br>
+<br>
+# Estudio Longitudinal
+# Social de Chile
+Resultados longitudinales 2016-2019
+<br>
+<br>
+<br>
+<br>
+<br>
+
+```{r out.width = '70%', echo = FALSE, fig.align = 'center'}
+knitr::include_graphics("Imagenes/logos.png") 
+```
+
+---
+
+class: middle
+<p style='text-align: justify;'>
+El Centro de Estudios de Conflicto y Cohesión Social (COES) desarrolla investigación colaborativa en temas relacionados al conflicto social y la cohesión (convivencia) en Chile, por medio de un equipo multidisciplinario proveniente de las ciencias sociales y humanidades. COES centra sus actividades académicas y de difusión en el análisis de las múltiples manifestaciones del conflicto y cohesión social en Chile, sus causas, así como también su contexto cultural e histórico.
+<br>
+<br>
+COES está patrocinado por la Universidad de Chile y la Pontificia Universidad Católica de Chile, y como instituciones asociadas se encuentran la Universidad Diego Portales y la Universidad Adolfo Ibáñez. COES cuenta con el apoyo del Fondo de Financiamiento de Centros de Investigación en Áreas Prioritarias (FONDAP, dependiente de la Agencia Nacional de Investigación y Desarrollo (ANID) del Ministerio de Ciencia, Tecnología, Conocimiento e Innovación. ELSOC además cuenta como socio al Instituto Milenio para la Investigación en Depresión y Personalidad (MIDAP).
+</p>
+<br>
+<br>
+```{r out.width = '30%', echo = FALSE, fig.align = 'center'}
+knitr::include_graphics("Imagenes/anid_midap.png") 
+```
+
+---
+# Equipo Ejecutivo
+.pull-left[
+**Roberto González**
+
+Profesor Titular Escuela de Psicología PUC. Investigador Principal COES
+
+**Matías Bargsted**
+
+Profesor Asociado Instituto de Sociología PUC. Investigador Asociado COES
+
+**Héctor Carvacho**
+
+Profesor Asistente Escuela de Psicología PUC. Investigador Adjunto COES
+
+**Daniel Miranda**
+
+Investigador Centro Medición MIDE UC. Investigador Adjunto COES
+]
+
+.pull-right[
+
+**Edgardo Cerda**
+
+Coordinador Técnica ELSOC
+
+**Monserratt Mella**
+
+Coordinadora Técnica ELSOC
+
+**Alejandro Plaza**
+
+Coordinador Técnica ELSOC
+]
+
+---
+# Directorio Técnico
+.pull-left[
+**Dante Contreras**
+
+Profesor Titular Departamento de Economía UCH. 
+Investigador Principal COES
+
+**Juan Carlos Castillo**
+
+Profesor Asociado Departamento de Sociología UCH. 
+Investigador Principal COES
+]
+
+.pull-right[
+**Valentina Paredes**
+
+Profesora Asistente Departamento de Economía UCH. 
+Investigadora Asociada COES
+
+**Matías Garretón**
+
+Investigador Centro de Inteligencia Territorial UAI. 
+Investigador Asociado COES
+]
+---
+# Investigadores Colaboradores 
+
+.pull-left[
+**Dimensiones Socioeconómicas del Conflicto**
+
+Valentina Paredes <br>
+Francisco Pino
+<br>
+<br>
+**Interacciones Grupales e Individuales**
+
+Roberto González <br>
+Daniel Miranda <br>
+Mónica Gerber <br>
+Luis Maldonado <br>
+Ignacio Madero <br>
+Héctor Carvacho <br>
+Gloria Jiménez
+<br>
+<br>
+**Conflicto Político y Social**
+
+Matías Bargsted <br>
+Nicolás Somma <br>
+]
+.pull-right[
+**Geografías del Conflicto**
+
+María Luisa Méndez <br>
+Nincen Figueroa <br>
+<br>
+**Otros/as Académicos/as Colaboradores/as**
+
+Ignacia Abufhele <br>
+Tomás Campos <br>
+Carlos Delgado <br>
+Julio Iturra <br>
+Javiera Pizarro <br>
+Salvador Vargas <br>
+]
+---
+# Presentación del Estudio 
+
+<p style='text-align: justify;'>
+El Centro de Estudios de Conflicto y Cohesión Social (COES) tiene el agrado de publicar el informe “Radiografía del Cambio Social”, el cual consolida los principales hallazgos longitudinales de cuatro mediciones anuales del Estudio Longitudinal Social de Chile (ELSOC 2016-2019).
+<br>
+<br>
+ELSOC es una encuesta desarrollada para analizar longitudinalmente, en un estudio panel, la evolución del conflicto y cohesión social en la sociedad chilena, basándose en modelos conceptuales descritos en la literatura nacional e internacional de las disciplinas del ámbito de la Economía, Sociología, Psicología, Ciencia Política y Estudios Urbanos. De este modo, se orienta a examinar los principales antecedentes, factores moderadores y mediadores, así como las principales consecuencias asociadas al desarrollo de distintas formas de sociabilidad en Chile.
+<br>
+<br>
+A fines del año 2019 y principios del 2020, Chile experimentó el estallido social más grande de las últimas tres décadas. Tomando como antecedente los últimos tres años, el presente informe caracteriza los principales patrones de estabilidad y cambio de las creencias, actitudes y percepciones que tienen los chilenos. Las consecuencias del estallido social a nivel político y social hoy son inconmensurables, pero consideramos que estudios como ELSOC permitirán a los investigadores y al público general tener un mapa global de las principales transformaciones y sus cristalizaciones en el tiempo.
+</p>
+---
+class: middle
+<p style='text-align: justify;'>
+
+Deseamos agradecer a cada uno de los investigadores e investigadoras de COES que han participado en el diseño e implementación de ELSOC. Un estudio de la complejidad de ELSOC no sería posible sin el compromiso de toda la comunidad de investigadores del Centro. Adicionalmente, agradecemos el apoyo y financiamiento de ANID y su programa FONDAP, sin los cuales no sería posible implementar una encuesta con los estándares que exige este tipo de estudios.
+<br>
+<br>
+Agradecemos también al aporte que ha hecho el Instituto Milenio para la Investigación en Depresión y Personalidad (MIDAP) al desarrollo del estudio. Agradecemos especialmente a todas las personas que han participado activamente en las cuatro mediciones ya realizadas en este estudio. Ellas nos han provisto de la información necesaria para poder analizar cómo y en qué aspectos ha ido evolucionando nuestra sociedad durante estos últimos cuatro años.
+<br>
+<br>
+Invitamos a todos los investigadores, estudiantes, tomadores de decisiones y a la opinión pública en general, a conocer principales resultados del estudio reportados en este informe. Esperamos que esta información nutra la reflexión académica y de la ciudadanía en torno a la manera como han evolucionado nuestras creencias, actitudes y percepciones que tenemos los chilenos y chilenas respecto de la convivencia y del conflicto en nuestra sociedad.
+</p>
+
+<p style='text-align: right;'>      
+Roberto González
+<br>
+Investigador Principal COES
+<br>
+Coordinador Equipo ELSOC
+</p>
+---
+# Indice
+.pull-left[
+**Reporte A**:
+- Caracterización general de ELSOC <br>
+<br>
+- Descripción de atrición <br>
+<br>
+- Composición de la muestra <br>
+<br>
+- Principales hallazgos longitudinales <br>
+<br>
+  1.- Movimientos sociales y acciones colectivas <br>
+  2.- Identificación política <br>
+  3.- Actitudes hacia la democracia <br>
+  4.- Perfiles ideológicos de los chilenos <br>
+  5.- Conflicto de clases y élites <br>
+  6.- Justificación de la violencia <br>
+  7.- Cambio Constitucional <br>
+]
+.pull-right[
+**Reporte B** (este documento):
+- Principales hallazgos longitudinales <br>
+<br>
+  8.-  Conflictividad barrial <br>
+  9.- Sociabilidad barrial <br>
+  10.- Confianza y seguridad con perspectiva territorial <br>
+  11.- Percepción de mérito y desigualdad <br>
+  12.- Género <br>
+  13.- Salud mental y bienestar<br>
+  14.- Migración
+]
+---
+# Objetivos General y Específicos
+<p style='text-align: justify;'>
+El Estudio Longitudinal Social de Chile (ELSOC) es una encuesta panel, representativa de la población nacional urbana, que analiza la estabilidad y cambio de las creencias, actitudes y percepciones que tenemos los chilenos y chilenas respecto de la convivencia y del conflicto en nuestra sociedad a lo largo del tiempo. 
+<br>
+<br>
+Una parte importante de los análisis reportan resultados analizando el efecto moderador que generan las variables demográficas y otras de interés (sexo, edad, quintiles de ingreso, orientación política, entre otras). Adicionalmente, se analizan descriptivamente las trayectorias de cambio que han seguido los participantes en muchos de los temas analizados en ELSOC (desde el 2016 y hasta el 2019). Dado que el reporte aborda varios temas, se ha decidido dividirlo en dos partes los cuales abordan los siguientes temas:
+<br> 
+</p>
+**Reporte A**:
+- Cambios en los niveles de participación de los chilenos(as) en Movimientos Sociales y acciones colectivas.
+- Cambios en las orientaciones políticas, identificaciones partidarias y con las coaliciones políticas.
+- Cambios en las actitudes de apoyo al sistema político democrático.
+- Perfiles ideológicos de los chilenos y correlatos sociales.
+- Cambios en los niveles de conflictos y relaciones entre clases sociales, deprivación relativa y élites.
+- Cambios en la justificación de la violencia para el control y cambio social (protestas y rol de carabineros)
+- Variaciones en el tiempo en las actitudes hacia el cambio constitucional y factores asociados
+---
+class: middle
+**Reporte B** (este documento):
+- Cambios en la calidad de la convivencia en los barrios, la satisfacción de sus residentes y los conflictos presentes en éstos.
+- Cambios en los niveles de confianza y seguridad con perspectiva territorial
+- Cambios en la percepción de clase social subjetiva, mérito y desigualdad.
+- Género, sexismo hostil y benevolente, expectativas de roles de género e identidad de género
+- Cambios en los niveles de salud mental (sintomatología depresiva), género y trabajo.
+- Cambio en los niveles de amenaza realista, simbólica, y confianza hacia los inmigrantes peruanos y haitianos.
+- Efectos del contacto intergrupal en los niveles de amenaza realista, simbólica, y confianza hacia los inmigrantes peruanos, haitianos y venezolanos. Rol de normas y promoción de contacto intergrupal.
+
+---
+
+# Acceso a Base de Datos 
+<p style='text-align: justify;'>
+El Estudio Longitudinal Social de Chile (ELSOC) ya se encuentra en su quinta medición, y se ha consolidado como insumo para el desarrollo de investigación científica y aplicada en ciencias sociales. En el sitio web http://elsoc.cl se puede acceder a más información sobre el estudio. Los códigos utilizados para el desarrollo de las figuras y análisis de Radiografía del Cambio Social se encontrarán disponibles en https://github.com/centro-coes.
+<br>
+<br>
+En segundo lugar, ELSOC tiene un compromiso con los más altos estándares científicos en términos de producción y análisis de datos. Dentro de esta visión global, ELSOC se guía por las principales pautas de Transparencia y Apertura en la investigación científica. Con este propósito, las bases de datos y documentación correspondientes a las cuatro primeras mediciones de ELSOC se encontrarán disponibles, de manera libre y gratuita, en un repositorio de datos, al cual se podrá acceder en el link https://dataverse.harvard.edu/dataverse/elsoc.
+</p>
+---
+
+
+# Ficha Técnica
+
+- Diseño: Estudio cuantitativo por medio de un cuestionario estructurado.
+
+- Periodicidad: Anual. 
+
+- Diseño Longitudinal: panel repetido (misma encuesta se aplica a dos muestras independientes). Segunda muestra se implementó a partir del tercer año de medición (2018).
+
+- Período de Aplicación: entre Julio y Noviembre de cada año. Cuarta medición se aplico entre el 21 de noviembre de 2019 y el 9 de marzo de 2020
+
+- Instrumento: Cuestionario compuesto por preguntas cerradas de carácter simple y múltiple junto a algunas preguntas abiertas. Combina módulos de preguntas permanentes (medidas en todas las olas) y otras intercaladas entre olas.
+
+- Cobertura Temática: Contiene siete módulos temáticos: Territorio, Redes y actitudes sociales, Ciudadanía y democracia, Desigualdad y legitimidad, Conflicto social, Salud y bienestar y Caracterización sociodemográfica.
+
+---
+# Dimension longitudinal del Diseño
+<br>
+```{r echo=FALSE, fig.align='center', fig.height=1, out.height="150%", out.width="150%"}
+knitr::include_graphics("Imagenes/longitudinal.jpg")
+```
+---
+
+# Ficha Técnica
+
+- Unidad de Análisis: Individuos.
+
+- Población Objetivo: Hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares ocupadas en zonas urbanas, localizadas en 40 ciudades (92 comunas, 13 regiones) del país.
+
+- Marco Muestral: Marco de muestreo de manzanas del pre-censo 2011, trabajo elaborado por el Centro de Inteligencia Territorial (CIT) de la Universidad Adolfo Ibáñez.
+
+- Diseño Muestral: Probabilístico, estratificado (por tamaño de ciudades), por conglomerados y multietápico.
+
+- Unidades de Muestreo: Primero se eligen ciudades (UPM), luego manzanas (USM), y sub-bloques y viviendas (UTM). La unidad final de selección es la persona.
+
+---
+
+# Dimensión Territorial del Diseño Muestral
+
+
+|               Estrato                | Definición | N° de ciudades en marco muestral | N° de ciuades seleccionadas 	|
+| :--- |:--- | :---: | :---: |
+| Áreas metropolitana de Santiago    |            | 1   | 1  |
+| Áreas metropolitana de Valparaíso  |            | 1   | 1  |
+| Áreas metropolitana de Concepción  |            | 1   | 1  |
+| Ciudades grandes    | Más de 100.000 habitantes | 18  | 8  |
+| Ciudades medianas   | Más de 30.000 habitantes  | 28  | 10 |
+| Ciudades pequeñas   | Más de 10.000 habitantes  | 73  | 19 |
+|   Total             |                           | 122 | 40 |
+
+
+---
+# Etapas de Selección en el Diseño Muestral
+```{r echo=FALSE, fig.align='center', fig.height=1, out.height="150%", out.width="150%"}
+knitr::include_graphics("Imagenes/etapas_seleccion.jpg")
+```
+
+---
+# Ficha Técnica
+
+**Organismo Ejecutor**: Consultora Stephanie Eckman y Centro de Inteligencia Territorial (CIT) de la Universidad Adolfo Ibáñez (diseño muestral). Centro Micro Datos (CMD) de la Universidad de Chile (levantamiento, procesamiento de la información y construcción de factores de expansión).
+<br>
+
+**Entrenamiento y Ejecución**: Contratación de entrevistadores con experiencia en encuestas complejas y/o longitudinales. Capacitación centralizada y presencial para coordinadores de campo y un subconjunto de entrevistadores en Santiago (incluidos ejercicios prácticos para la implementación del cuestionario, uso de tabletas y protocolo de contacto). Actividades adicionales en otras regiones de Chile. Diseño de un Manual de entrevistador especializado para el proyecto.
+<br>
+
+**Operaciones de Control y Supervisión**: Entrega de incentivos monetarios para el encuestado ($ 6.000 CLP) y de material sobre el estudio (ELSOC y COES). Acciones de seguimiento basadas en la información de contacto (correo electrónico para cumpleaños y días festivos). Los coordinadores de campo supervisan el trabajo de los entrevistadores, verificando el número de visitas, el contacto, la identidad del participante y algunas preguntas claves. El Centro Micro Datos realiza una supervisión interna de al menos el 10% de la muestra (entrevistando nuevamente a algunos encuestados), verificando la duración y la respuesta de los participantes.
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Conflictividad barrial
+]
+---
+## Conflictividad y sociabilidad barrial
+<p style='text-align: justify;'>
+Las ciudades chilenas se caracterizan por marcados niveles de segregación residencial. Esto, en conjunción a la falta de servicios públicos en zonas periféricas y la creciente disparidad de recursos entre municipios ricos y pobres, ha dado lugar a marcadas diferencias socioeconómicas entre distintas zonas de la ciudad.
+<br>
+<br>
+La conflictividad barrial puede analizarse empíricamente por medio de preguntas que analizan la frecuencia con que las personas se han molestado o incomodado por problemas con vecinos. En la Figura 8.1 se observa que en términos temporales las molestias por problemas con los vecinos se han mantenido estable a lo largo del tiempo, siendo baja la proporción de la población que declara tener dichas experiencias. Al revisar las trayectorias temporales en la Figura 8.2, se puede apreciar que un porcentaje importante de las personas que declaró haber tenido muchas o algunas tensiones con sus vecinos en 2016, ellas tienden a disiparse el 2019. Sin embargo, también se consta movilidad entre quienes nunca vivieron tensiones con sus vecinos el 2016, más de la mitad de ellos declara haberlas vivido en pocas o algunas ocasiones el 2019.
+</p>
+---
+## Conflictos Barriales
+<p style='text-align: justify;'>
+Al revisar la distribución de las personas que declaran tener “siempre o muchas veces” conflictos barriales, se puede observar una importante caída en el norte y en el sur del país, aumentando levemente en el centro y en la Región Metropolitana (Figura 8.3). Al revisar estos patrones por los estratos que componen el estudio, se constata que es en el Gran Santiago dónde ha aumentado la conflictividad barrial (Figura 8.4). Al analizar la conflictividad barrial por quintiles de ingresos, se constata que en general esta aumenta a medida que disminuyen los ingresos. Esta tendencia es estable en el tiempo, excepto en los quintiles 4 y 5 (sectores mas acomodados), donde se observan caídas más pronunciadas de conflictividad barrial al comparar 2016 y 2019 (Figura 8.5).
+---
+### 8.1 ¿Con qué frecuencia usted/alguien de su hogar se ha molestado o incomodado por problemas con sus vecinos? según ola de estudio
+```{r echo=FALSE, fig.align='center', fig.width=5, fig.height=2}
+
+g8.1 <- gr.bar.freq('confli.barrial.rec', posicion = 'stack', colores = c(0,.85,1))
+g8.1
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g8.1)` </small>
+---
+### 8.2 Cambios en frecuencia de conflictos barriables
+<br>
+```{r echo=FALSE, fig.align='center', fig.width=5, fig.height=2.3}
+g8.2 <- gr.alluvial.freq('confli.barrial.rec', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), colores = c(0,.85,1))
+g8.2
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g8.2)`. </small>
+---
+### 8.3 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona geográfica
+<p style='text-align: center;'> Porcentaje con conflictos barriables "Siempre" o "Muchas veces" </p>
+```{r echo=FALSE, fig.align='center', fig.width=5, fig.height=2.2}
+g8.3 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "zona1", var_z = 'ola', REC = 'Muchas veces o siempre',
+                data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
+g8.3
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g8.3, 'var_z')`</small>
+---
+### 8.4 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona de residencia
+<p style='text-align: center;'> Porcentaje con conflictos barriables "Siempre" o "Muchas veces" </p>
+```{r echo=FALSE, fig.align='center', fig.width=5, fig.height=2.1}
+g8.4 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "estrato", var_z = 'ola', REC = 'Muchas veces o siempre',
+                data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
+g8.4
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g8.4, 'var_z')` </small>
+---
+
+### 8.5 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y quintiles de ingreso
+<p style='text-align: center;'> Porcentaje con conflictos barriables "Siempre" o "Muchas veces" </p>
+```{r echo=FALSE, fig.align='center', fig.width=5, fig.height=2}
+g8.5 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "quintil", var_z = 'ola', REC = 'Muchas veces o siempre',
+                data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
+g8.5
+
+```
+
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g8.4, 'var_z')` </small>
+
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+#Sociabilidad barrial
+]
+---
+## Sociabilidad barrial
+<p style='text-align: justify;'>
+Para estudiar la sociabilidad barrial, ELSOC aborda cuatro aspectos centrales. Se le consulta a los encuestados acerca de la facilidad que tiene en su barrio para generar relaciones de amistad, y se evalúa la medida en que perciben la gente de su barrio es sociable, cordial y colaboradora. A partir de estos indicadores, se calcula un índice de sociabilidad barrial el cual expresa el nivel de apoyo social que las personas obtienen de su barrio (Smith, 1975). Tal como se puede apreciar en la Figura 9.1 se ha constatado un progresivo aumento de la alta sociabilidad a lo largo del tiempo. Es más, al analizar las trayectorias, es posible ver que hay un importante flujo de quienes declaraban tener baja o media sociabilidad barrial el 2016, moverse de manera importante a altos niveles de sociabilidad.
+<br>
+<br>
+Al nivel territorial se puede observar el mismo patrón de aumento de la sociabilidad barrial, según zona geográfica (Figura 9.3), zonas de residencia (Figura 9.4 y Figura 9.5) y quintiles de ingresos (Figura 9.6).
+</p>
+
+---
+### 9.1 Sociabilidad Barrial, según ola de estudio
+```{r echo=FALSE, fig.align='center'}
+g9.1 <- gr.bar.freq("sociabili.rec", var_x= "ola",limits_y = c(0,1), posicion = 'stack')
+g9.1 
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g9.1)` </small>
+---
+### 9.2 Cambios en Sociabilidad Barrial, según ola de estudio
+<p style='text-align: center;'> Porcentaje con sociabilidad barrial "Alta" </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g9.2 <- gr.alluvial.freq('sociabili.rec', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
+g9.2
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g9.2)` </small>
+---
+### 9.3 Porcentaje de Sociabilidad Barrial "Alta", según ola de estudio y zona geográfica
+```{r echo=FALSE, fig.align='center'}
+g9.3 <- gr.bar.freq.rec("sociabili.rec", var_x = "zona1", var_z = 'ola',
+                        data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), REC = 'Alta', limits_y = c(0,.8))
+g9.3
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g9.3, 'var_z')` </small>
+---
+### 9.4 Porcentaje de Sociabilidad Barrial "Alta", según ola de estudio y zona de residencia
+```{r echo=FALSE, fig.align='center'}
+g9.4 <- gr.bar.freq.rec("sociabili.rec", var_x = "estrato", var_z = 'ola', REC = 'Alta', limits_y = c(0,.8),
+                data = subset(elsoc_panel_m1, (ola == 2016 | ola == 2019) & (estrato == 'Gran Santiago' | estrato == 'Gran Valparaíso' | estrato == 'Gran Concepción')))
+g9.4
+
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g9.4, 'var_z')` </small>
+---
+
+### 9.5 Porcentaje de Sociabilidad Barrial "Alta", según ola de estudio y zona de residencia
+```{r echo=FALSE, fig.align='center'}
+g9.5 <- gr.bar.freq.rec("sociabili.rec", var_x = "estrato", var_z = 'ola', REC = 'Alta', limits_y = c(0,.8),
+                data = subset(elsoc_panel_m1, (ola == 2016 | ola == 2019) & !(estrato == 'Gran Santiago' | estrato == 'Gran Valparaíso' | estrato == 'Gran Concepción')))
+g9.5
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g9.5, 'var_z')` </small>
+
+---
+
+### 9.6 Porcentaje con Índice de Sociabilidad Barrial "Alta", según ola de estudio y quintil de ingresos del hogar
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g9.6 <- gr.bar.freq.rec("sociabili.rec", var_x = "quintil", var_z = 'ola', 
+                        data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), REC = 'Alta', limits_y = c(0,.8))
+g9.6
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g9.6, 'var_z')` </small>
+
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Confianza y seguridad con perspectiva territorial
+]
+---
+## Confianza y seguridad con perspectiva territorial
+<p style='text-align: justify;'>
+La confianza y la seguridad barrial tiene una importancia sustantiva en la medida de que nos permite comprender la evolución de la calidad de vida en los barrios y su sustentabilidad en el tiempo (Brown, Brown y Perkins, 2004).
+<br>
+<br>
+A nivel territorial se puede observar que la confianza en los vecinos ha tendido a aumentar levemente a nivel territorial (Figura 10.1), constatándose un incremento mayor en el norte del país. La confianza en los vecinos sigue siendo más alta en los barrios de mayores ingresos, sin embargo, nuevamente no se observan variaciones a lo largo del tiempo (Figura 10.2). 
+<br>
+<br>
+En relación a la percepción de seguridad en los barrios, se puede constatar que en la zona sur del país ha tendido a crecer con el paso del tiempo (Figura 10.3). La seguridad percibida en los barrios también tiende a aumentar con los niveles de escolaridad y de ingresos, siendo más alta en los tramos de mayor escolaridad e ingresos (Figura 10.4 y Figura 10.6). Son las personas mayores de 50 años en adelante quienes perciben mayor seguridad en sus barrios y quienes experimentan un aumento sustantivo desde el 2016 al 2019 (Figura 10.5). No se constatan variaciones según posición ideológica, sin embargo, ésta tiende a aumentar entre el 2016 al 2019 especialmente en quienes se declaran de centro y de derecha (Figura 10.7).
+</p>
+
+---
+
+### 10.1 En términos generales, ¿cuánto confía usted en sus vecinos? Según ola del estudio y zona geográfica
+<p style='text-align: center;'>  Suma de Respuestas “Bastante” y “Mucho” </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.1 <- gr.bar.freq.rec("t01", "zona1", "ola", limits_y = c(0, .8), 
+                         data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
+g10.1
+
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.1, 'var_z')`</small>
+
+---
+### 10.2 En términos generales, ¿cuánto confía usted en sus vecinos? Según ola del estudio y nivel educacional
+<p style='text-align: center;'>  Suma de Respuestas “Bastante” y “Mucho” </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.2 <- gr.bar.freq.rec("t01", "quintil", "ola", limits_y = c(0, .8), 
+                         data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
+g10.2
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.2, 'var_z')`</small>
+---
+
+### 10.3 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y zona geográfica
+<p style='text-align: center;'> Suma de Respuestas "Seguro" o ”Muy Seguro" </p>
+
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.3 <- gr.line.freq.rec("t10", var_x= "ola",var_w = "zona1", REC = c('Muy seguro', 'Seguro'))
+g10.3
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.3)`</small>
+---
+### 10.4 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y nivel educacional
+<p style='text-align: center;'> Suma de Respuestas "Seguro" o ”Muy Seguro" </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.4 <- gr.line.freq.rec("t10", var_x= "ola", var_w = "educ", REC = c('Muy seguro', 'Seguro'))
+g10.4
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.4)`</small>
+---
+### 10.5 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y tramos de edad
+<p style='text-align: center;'> Suma de Respuestas "Seguro" o ”Muy Seguro" </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.5 <- gr.line.freq.rec("t10", var_w= "edadt",var_x= "ola", REC = c('Muy seguro', 'Seguro'))
+g10.5
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.5)`</small>
+---
+### 10.6 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y quintiles de ingreso per capita
+<p style='text-align: center;'> Suma de Respuestas "Seguro" o ”Muy Seguro" </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+
+g10.6 <- gr.line.freq.rec("t10", var_x= "ola",var_z = "quintil", REC = c('Muy seguro', 'Seguro'),
+                          data = subset(elsoc_panel_m1, quintil == 'Q1'| quintil == 'Q5'),
+                          colores = c(.1,.66,-1))
+g10.6
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.6)`</small>
+---
+### 10.7 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio e ideología política
+<p style='text-align: center;'> Suma de Respuestas "Seguro" o ”Muy Seguro" </p>
+```{r echo=FALSE, fig.align='center', fig.width=6, fig.height=2.5}
+g10.7 <- gr.line.freq.rec("t10", var_x= "ola", var_w = "pos_id", REC = c('Muy seguro', 'Seguro'))
+g10.7
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.7)`</small>
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Percepción de Mérito y Desigualdad
+]
+---
+## Estatus subjetivo, Percepción de Mérito y Desigualdad 
+<p style='text-align: justify;'>
+En toda sociedad, las personas tienden a ubicarse subjetivamente en clases sociales en función de la posición relativa que ellas perciben ocupan en relación al resto. ELSOC analizó este tema, y constató que en general las personas tienden a ubicarse mayoritariamente en las clases sociales medias (Figura 11.1), aún cuando se constata un aumento importante el 2019 de personas que se declaran pertenecer a clases bajas. Al analizar las trayectorias a lo largo del tiempo, los resultados revelan movimientos ascendentes (desde clases bajas a medias) y descendentes (desde clases medias a bajas) que explica la estabilidad de la clase social subjetiva (Figura 11.2). Como es esperable, existe una asociación con ingresos, donde aumenta la proporción de personas que se declara de clase baja a medida que caen los ingresos (Figura 11.3). Finalmente, al analizar las expectativas que las personas tienen de sus hijos(as) en el futuro existe una alta correspondencia con la clase social subjetiva, y se constata que, a medida que ésta aumenta, mayor es la proporción de personas que piensa que hijos(as) tendrán una posición alta en el futuro (Figura 11.4).
+<br>
+<br>
+El mérito, entendido como la combinación de esfuerzo y habilidades individuales (Sen, 2000), constituye el fundamento de una sociedad basada en el principio de igualdad de oportunidades. Estudiar la meritocracia, implica estudiar una de las formas en que las personas legitiman la desigualdad social. El merito se vuelve el principio fundamental a partir del cual se deben asignar o distribuir los bienes (Young, 1961).
+<br>
+<br>
+Los resultados en la Figura 11.5 revelan un alto consenso al identificar a la educación como el criterio más importante para surgir en la vida, seguido por el trabajo duro. En el otro extremo figuran en muy baja proporción la importancia que le atribuyen a la inteligencia a la hora de ser recompensadas. Por ultimo, se constata otro hecho que es estable en el tiempo, en torno a un 23,6% de las personas piensa que las personas son recompensadas por su esfuerzo. Todos estos aspectos evaluados se han mantenido estables en el tiempo.
+</p>
+---
+### 11.1 En nuestra sociedad, hay grupos que tienden a ubicarse en los niveles más altos y grupos que tienden a ubicarse en los niveles más bajos de la sociedad ¿Dónde se ubicaría usted?, según ola de estudio
+```{r echo=FALSE, fig.align='center'}
+g11.1 <- gr.bar.freq(var_y = "clase.sub", var_x = "ola", posicion = 'stack', reverse_y = T)
+g11.1
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g11.1)` </small>
+---
+### 11.2 Cambios de Clase social subjetiva entre 2016 y 2019
+```{r echo=FALSE, fig.align='center'}
+g11.2 <- gr.alluvial.freq("clase.sub", data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), reverse_y=T)
+g11.2
+```
+<br>
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.2)` </small>
+---
+### 11.3 Clase social subjetiva, según quintiles de ingreso (2019)
+```{r echo=FALSE, fig.align='center'}
+g11.3 <- gr.bar.freq('clase.sub', var_x = 'quintil', data = subset(elsoc_panel, ola == 2019),
+            posicion = 'stack', reverse_y = T)
+g11.3
+```
+<br>
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.3, NULL)`</small>
+---
+### 11.4  Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019)
+```{r echo=FALSE, fig.align='center'}
+g11.4 <- gr.bar.freq('clase.sub.hijos', 'clase.sub', data = subset(elsoc_panel, ola == 2019),
+            posicion = 'stack', reverse_y = T, titulo_x = 'Clase social subjetiva propia')
+g11.4
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.4, NULL)` </small>
+---
+### 11.5  Percepción de importancia y recompensas del mérito, según ola de estudio 
+<p style='text-align: center;'> Porcentaje de Respuestas "De acuerdo" y ”Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+elsoc_panel_m1 <- elsoc_panel_m1 %>%
+  mutate(d05_02_rec = factor(d05_02, labels = c('1','2','3','4','5')),
+         d05_04_rec = factor(d05_04, labels = c('1','2','3','4','5')),
+         c18_09_rec = factor(c18_09, labels = c('1','2','3','4','5')),
+         c18_10_rec = factor(c18_10, labels = c('1','2','3','4','5')))
+
+g11.5 <- gr.line.freq.rec.list(c('c18_09_rec', 'c18_10_rec', 'd05_02_rec', 'd05_04_rec'), 'ola', data = elsoc_panel_m1, 
+                      label_color = c('Personas son recompensadas por su esfuerzo', 
+                                      'Personas son recompensadas por su inteligencia',
+                                      'Educación es importante para surgir en la vida',
+                                      'Trabajo duro es importante para surgir en la vida'),
+                      colores = c(0, .66, -1))
+g11.5
+
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.5, 'var_x', 'var_z')` </small>
+
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Género
+]
+---
+## Sexismo hostil y benevolente
+<p style='text-align: justify;'>
+El concepto de sexismo ambivalente (Glick y Fiske, 1997) identifica dos tipos de prejuicio hacia las mujeres, que involucran tanto evaluaciones negativas como positivas. El sexismo hostil es un prejuicio que concibe a las mujeres de forma negativa, derogatoria, y en un lugar inferior a los hombres. En contraste, el sexismo benévolo se muestra en apariencia como una visión positiva sobre las mujeres, sin embargo, se acompaña de una visión paternalista y de protección hacia las mujeres, que las limita a roles de género tradicionales. Ambas formas de sexismo difieren en el tipo de evaluación (positiva o negativa) hacia las mujeres, pero comparten su utilidad para justificar una estructura patriarcal y asumir una división tradicional de los roles de género.
+<br>
+<br>
+ELSOC desde el año 2019 incorpora una batería de preguntas para medir ambos tipos de sexismo. La Figura 12.1, muestra los niveles de sexismo según sexo de los participantes. En primer lugar, si bien tanto hombres como mujeres exhiben altos niveles de sexismo benevolente, estando de acuerdo y muy de acuerdo con que las mujeres son más refinadas que los hombres y que ellas debieran ser queridas y protegidas por los hombres, las mujeres tienden en términos relativos a exhibir menores niveles que los hombres. Respecto de los niveles de sexismo hostil, no se constatan diferencias por sexo, exhibiendo en general niveles relativamente alto de esta forma de prejuicio. 
+</p>
+---
+## Sexismo hostil y benevolente
+<p style='text-align: justify;'>
+Al analizar los niveles de sexismo benevolente por edad, se observan importantes diferencias especialmente cuando se evalúa el grado de acuerdo con que las mujeres son más refinadas que los hombres (Figura 12.2). Claramente existe una asociación positiva, en que a mayor edad aumentan sustantivamente los grados de acuerdo con esta afirmación. Son especialmente llamativas las diferencias entre hombres y mujeres jóvenes, y adultos jóvenes donde son los primeros quienes adhieren más a la idea de que las mujeres son más refinadas que los hombres.  Sin embargo, existe un altísimo consenso para hombres y mujeres con independencia de la edad de que las mujeres debieran ser queridas y protegidas por los hombres, confirmando cuan arraigada esta esta forma de sexismo benevolente. Respecto del sexismo hostil (Figura 12.3), las únicas diferencias importantes se observan en el grupo de los jóvenes donde claramente las mujeres exhiben menor nivel de adhesión a la creencia de que las mujeres consiguen privilegios en nombre de la igualdad o cuando las mujeres son derrotadas limpiamente se quejan de discriminación.
+<br>
+<br>
+El sexismo benévolo y hostil cambia sustantivamente según nivel de escolaridad, observándose que a media que aumenta el nivel de escolaridad disminuye de manera muy sustantiva las expresiones de ambas formas de sexismo (Figura 12.4).
+</p>
+---
+```{r objetos, include=FALSE}
+#Escala sexismo
+elsoc_panel$sexismo <- c( as.numeric(elsoc_panel$g01_01) + as.numeric(elsoc_panel$g01_02) +
+                          as.numeric(elsoc_panel$g01_03) + as.numeric(elsoc_panel$g01_04)) /4
+
+elsoc_panel$sexismo_benevolo <- c( as.numeric(elsoc_panel$g01_01) + as.numeric(elsoc_panel$g01_02))/2
+elsoc_panel$sexismo_hostil <- c(as.numeric(elsoc_panel$g01_03) + as.numeric(elsoc_panel$g01_04))/2
+
+```
+
+### 12.1 Sexismo benévolo y hostil, según sexo (2019)
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+g12.1 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02', 'g01_03', 'g01_04'), var_z = 'm0_sexo',
+                     label_x = c('Mujeres son más refinadas y con mejor gusto que los hombres',
+                     'Mujeres debieran ser queridas y protegidas por los hombres',
+                     'Mujeres consiguen privilegios en nombre de igualdad',
+                     'Cuando mujeres son derrotadas limpiamente, se quejan de discriminación'))
+
+g12.1
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g12.1, 'var_x')` </small>
+---
+### 12.2 Sexismo benévolo,según sexo y tramo de edad (2019)
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+
+g12.2 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02'), 'edadt', 'm0_sexo', modo = 3,
+                     label_list = c('Mujeres son más refinadas y con\n mejor gusto que los hombres',
+                                    'Mujeres debieran ser queridas y\n protegidas por los hombres')) + theme(strip.text = element_text(size = rel(.8)))
+g12.2
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.2, 'var_w')`</small>
+
+---
+
+### 12.3 Sexismo hostil, según sexo y tramo de edad (2019)
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+g12.3 <-   gr.bar.freq.rec.list(c('g01_03', 'g01_04'), 'edadt', 'm0_sexo', modo = 3,
+                     label_list = c('Mujeres consiguen privilegios en nombre de igualdad',
+                                 'Cuando mujeres son derrotadas limpiamente,\n se quejan de discriminación')) + theme(strip.text = element_text(size = rel(.8)))
+g12.3
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.3, 'var_w')`</small>
+---
+
+### 12.4 Sexismo benévolo y hostil, según nivel educacional (2019)
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+
+```{r echo=FALSE, fig.align='center'}
+g12.4 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02', 'g01_03', 'g01_04'), var_z = 'educ',
+                     label_x = c('Mujeres son más refinadas y con mejor gusto que los hombres',
+                     'Mujeres debieran ser queridas y protegidas por los hombres',
+                     'Mujeres consiguen privilegios en nombre de igualdad',
+                     'Cuando mujeres son derrotadas limpiamente, se quejan de discriminación'))
+g12.4
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.4, 'var_x')` </small>
+---
+## Expectativas y roles de género
+<p style='text-align: justify;'>
+La literatura especializada muestra que en general, son los hombres de quienes se espera realicen roles y trabajos de alto estatus, mientras que a las mujeres les corresponde llevar a cabo roles domésticos y de menor estatus (Glick y Fiske, 1999). Esta diferenciación de género es de alguna forma complementaria, ya que asume que las mujeres tienen una serie de características para asumir estos roles (por ejemplo, pureza para ser una buena esposa, o afectividad para ser una buena madre), que complementan las características de los hombres (por ejemplo, competitividad para ser un trabajador exitoso). Por lo tanto, las expresiones de estos roles de género tradicionales pueden considerarse como una forma de expresión del prejuicio hacia la mujer que todavía están vigentes (Figueiredo, Jiménez-Moya, Paredes & González, 2017).
+<br>
+<br>
+Tal como se aprecia en la Figura 12.5, el 85,4% de los hombres está de acuerdo en que sus familias y amigos esperan que ellos sean una persona laboralmente exitosa. Esta cifra sin embargo cae sustantivamente en el caso de las mujeres llegando a un 75,6%. Según los estereotipos tradicionales de género, se presume que sean las mujeres y en menor proporción los hombres, quienes piensen que la familia y los amigos esperan que los hijos sean su primera prioridad en la vida. Los resultados de ELSOC no confirman esta hipótesis, revelando muy altas expectativas tanto en las mujeres como en los hombres (Figura 12.5). </p>
+---
+### 12.5 Expectativas y Normas de género (2019), según sexo del entrevistado
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+g12.5 <- gr.bar.freq.rec.list(c('g02_03', 'g02_04'), var_z = 'm0_sexo',
+                     label_x = c('Mi familia y mis amigos esperan que sea una persona laboralmente exitosa',
+                                 'Mi familia y mis amigos esperan que mis hijos sean mi primera prioridad'),
+                     REC = c('De acuerdo', 'Totalmente de acuerdo'))
+g12.5
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.5, 'var_x')` </small>
+---
+## Derechos y roles de género
+<p style='text-align: justify;'>
+En cuanto a derechos y roles de género, la Figura 12.6 revela que una muy baja proporción de hombres (16,6%) y mujeres (14,5%) está de acuerdo con la idea de que, en ausencia de trabajos disponibles, sean los hombres quienes deberían tener más derecho a un trabajo que las mujeres. Esta baja adhesión revela un distanciamiento importante de los roles estereotipados de género. Sin embargo, y en consonancia con los roles tradicionales de género, dicho hallazgo contrasta fuertemente con altísimo consenso que existe entre hombres y mujeres al pensar que la vida familiar sufre cuando la mujer tiene un trabajo a tiempo completo. Ambos datos dan cuenta de la ambivalencia que existe en la población respecto de la participación de la mujer en el mundo del trabajo y el impacto que produce ello en la vida familiar.  </p>
+---
+### 12.6 Derechos y Roles de género (2019), según sexo del entrevistado
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+g12.6 <- gr.bar.freq.rec.list(c('g01_05', 'g02_05'), var_z = 'm0_sexo',
+                     label_x = c('Cuando no hay muchos trabajos disponibles, los hombres deberían tener más derecho a un trabajo que las mujeres',
+                                 'En general, la vida familiar sufre cuando la mujer tiene un trabajo a tiempo completo'))
+
+g12.6
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g12.6, 'var_x')` </small>
+---
+## Trabajo y género
+<p style='text-align: justify;'>
+En línea con los roles de género, no sorprende que en el año 2019 el 82,6% de los hombres tenga un trabajo remunerado, en comparación al 52,3% de las mujeres (Figura 12.7). Esto se complementa con el hecho que el 24,7% de las mujeres realizan trabajo doméstico no remunerado, en comparación al 0% de los hombres. Al igual que los resultados reportados por la Encuesta Nacional de Uso del Tiempo (ENUT 2015), se refleja que no existe una distribución de tareas domésticas y de cuidado paritaria. Esto resulta relevante cuando existen políticas públicas que se han creado para facilitar el acceso de las mujeres al mercado laboral, compatibilizando la carga del trabajo doméstico con el trabajo remunerado y, sobre todo, promoviendo una distribución más equitativa entre hombres y mujeres de las labores domésticas (Figueiredo, Jiménez-Moya, Paredes & González, 2017).
+<br>
+<br>
+Es interesante constatar que al analizar las trayectorias que han experimentado las personas en cuanto a su actividad principal a lo largo del tiempo (trabajo remunerado, no remunerado, etc.) son las mujeres quienes exhiben mayor dinamismo, incrementándose desde el 2016 al 2019 la proporción de mujeres que trabaja remuneradamente.
+<br>
+<br>
+Finalmente, ELSOC revela la persistencia de una brecha salarial entre hombres y mujeres que trabajan a tiempo parcial o completo entre el 2016 y 2019. Tal como se observa en la Figura 12.9 el salario promedio de las mujeres oscila alrededor de \$430.000, mientras que el de los hombres alrededor de \$660.000.
+</p>
+---
+### 12.7 Porcentaje de trabajadores y trabajadoras por situación ocupacional (2019), según sexo del entrevistado
+```{r echo=FALSE, fig.align='center'}
+g12.7 <- gr.bar.freq(var_x = 'm0_sexo', var_y = 'empleo', var_z = 'ola', posicion = 'stack', 
+            data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
+g12.7
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.7, 'var_z')` </small>
+---
+### 12.8 Porcentaje de trabajadores y trabajadoras no remunerados, según ola y sexo del entrevistado
+```{r echo=FALSE, fig.align='center', fig.height=2.8}
+g12.8 <- gr.alluvial.freq('empleo', var_z = 'm0_sexo',
+                       data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019),
+                 posicion_leyenda = 'top')
+g12.8
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.8)` </small>
+---
+### 12.9 Ingreso medio de ocupados y ocupadas a tiempo completo o parcial, según ola y sexo del entrevistado
+```{r echo=FALSE, fig.align='center'}
+g12.9 <- gr.line.media('m13', var_x = 'ola', var_z = 'm0_sexo', 
+              data = subset(elsoc_panel_m1, empleo == 'Trabajo remunerado'),
+              limits_y = c(0,1000000),
+              colores = c(.33,.66,-1))
+g12.9
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.9)` </small>
+---
+## Identidad de género y sororidad
+<p style='text-align: justify;'>
+El concepto de género es principalmente de orden cultural y social, pero también, tiene una dimensión subjetiva en tanto es constituyente de la identidad.  ELSOC indagó en qué medida hombres y mujeres se identifican con su género. Tal como es esperable para una identidad tan saliente, la gran mayoría de los hombres (78%) y de las mujeres (89%) está de acuerdo con la afirmación que su género es parte importante de su identidad. Es decir, ser hombre o mujeres constituye un aspecto importante de su identidad subjetiva (Figura 12.10).
+<br>
+<br>
+Al preguntar por el grado de compromiso con personas del mismo sexo, se constatan diferencias importantes entre hombres y mujeres.  Son las mujeres (38%) en comparación a los hombres (22%) quienes se sienten más comprometidas con personas de su mismo sexo.  Es esperable que este resultado se relacione con la alta visibilidad que ha tenido el movimiento feminista, tanto en Chile como en el mundo, donde ha tomado fuerza el concepto y ejercicio de la sororidad, la cual refiere a la experiencia de las mujeres que conduce a la búsqueda de relaciones positivas y a la alianza existencial y política con otras mujeres para eliminar todas las formas de opresión y para empoderarlas. La sororidad es un pacto político entre pares (Lagarde, 2012). </p>
+---
+### 12.10 Identidad de género (2019), según sexo
+<p style='text-align: center;'> Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo" </p>
+```{r echo=FALSE, fig.align='center'}
+g12.10 <- gr.bar.freq.rec.list(c('g02_01', 'g02_02'), var_z = 'm0_sexo',
+                     label_x = c('El hecho de ser hombre/mujer es una parte importante de mi identidad',
+                                  'Me siento más comprometido con las personas de mi mismo sexo que con personas del otro sexo'))
+g12.10
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g12.10, 'var_x')` </small>
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Salud Mental y Bienestar
+]
+---
+## Salud Mental y Bienestar 
+<p style='text-align: justify;'>
+La salud mental es un indicador del bienestar de la población. La depresión es una afección mental caracterizada por un bajo estado de ánimo, pérdida de energía y desinterés generalizado. En todas las mediciones de ELSOC se ha incluido una batería de preguntas para detectar sintomatología depresiva (PHQ-9). En base a este instrumento se pueden catalogar a los participantes según sus síntomas de depresión: “Sin síntomas o depresión mínima”, “Depresión media”, “Depresión Moderada” y “Depresión Moderada Severa o Severa”. 
+<br>
+<br>
+En general, se aprecia preocupantemente, un incremento de las personas que declaran tener síntomas de depresión a lo largo del tiempo (Figura 13.1). El cambio más relevante ocurre entre el 2017 y 2019, específicamente en la categoría Depresión Media, que el año 2017 la padecía el 29,4% de las personas mientras que el 2019 aumenta al 40,3% (las demás categorías permanecen relativamente estables). 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<small> Nota 1: es necesario aclarar que este índice no constituye un diagnóstico clínico de depresión. <br>
+Nota 2: Se combinan las categorías "Depresión Moderada Severa" y "Depresión Severa" por su baja frecuencia por separado.
+</small>
+</p>
+---
+### 13.1 Síntomas de Depresión, según Ola del Estudio
+```{r echo=FALSE, fig.align='center'}
+g13.1 <- gr.bar.freq("depr", posicion = 'stack', reverse_y=T, colores = c(0,.85,1))
+g13.1
+```
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g13.1)`</small>
+---
+## Brecha de género en Salud Mental
+<p style='text-align: justify;'>
+En el mundo occidental, la depresión es aproximadamente el doble de frecuente en las mujeres que en los hombres (Piccinelli y Wilkinson, 2000). La mayoría de las investigaciones actuales aceptan que las diferencias de género en la depresión son el resultado de una interacción variable entre factores biológicos, psicológicos y sociales (Hopcroft y Bradley, 2007; Kuehner, 2003). Esta brecha de género se evidencia la Figura 13.2, donde se observa que entre 2016 y 2019 existe una mayor proporción de mujeres que hombres que tiene síntomas de Depresión Moderada o Depresión Moderada Severa a Severa.  Por ejemplo, el año 2016, el 12,9% de los hombres se encontraba en dichas categorías, en comparación al 28,5% de las mujeres. Si bien esta brecha de género disminuye en los años 2017 y 2018, el año 2019 post estallido social, son las mujeres quienes incrementan sustantivamente los síntomas de Depresión Moderada o más, llegando a duplicar al grupo de los hombres.
+<br>
+<br>
+La Figura 13.3 revela que las trayectorias de síntomas de depresión entre el año 2016 y 2019 son bastante similares entre hombres y mujeres. Por ejemplo, alrededor de la mitad de hombres y de mujeres que el año 2016 no presentaban síntomas si lo hacen el año 2019; migrando principalmente a la categoría de depresión media. Por su parte, la mayoría de hombres y mujeres que el año 2016 tenía síntomas de depresión media, se mantiene en dicha categoría el año 2019. En las categorías de mayor depresión, los hombres parecen mayoritariamente disminuir la cantidad de síntomas de depresión, mientras que en las mujeres no se revela un patrón de trayectoria predominante.
+<br>
+<br>
+Al analizar la sintomatología por tramos de edad y sexo, el 2019 se constata que son las mujeres quienes, en comparación a los hombres, exhiben más altos niveles de depresión moderada y moderada severa en todos los tramos etarios excepto en el tramo de 18 a 29 años donde ambos se igualan en torno a 30,5% para mujeres, y 34,5% para hombres  (Figura 13.4).
+</p>
+---
+### 13.2 Sintomatología Depresiva por año, según sexo
+<p style='text-align: center;'> Porcentaje con síntomas de "Depresion Moderada" o "Depresion Moderada Severa a Severa" </p>
+```{r echo=FALSE, fig.align='center', fig.width=5.5, fig.height=2.5}
+g13.3 <- gr.line.freq.rec("depr", var_x = "ola", var_z ="m0_sexo", REC=c('Depresion Moderada', 'Depresion Moderada Severa a Severa'),
+                 data = subset(elsoc_panel_m1, empleo != 'Otros'), limits_y = c(0,.5),
+                 colores = c(.33,.66,-1))
+g13.3
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g13.3)` </small>
+---
+### 13.3 Cambios en Síntomas de depresión entre años 2016 y 2019, según sexo
+```{r echo=FALSE, fig.align='center', fig.height=2.8}
+g13.2 <- gr.alluvial.freq("depr", 'm0_sexo', data = subset(elsoc_panel_m1, ola==2016 |ola == 2019), reverse_y = T,  colores = c(0,.85,1), posicion_leyenda = 'top')
+g13.2
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g13.2)` </small>
+
+---
+### 13.4 Síntomas de Depresión según tramos de edad y sexo (2019)
+<p style='text-align: center;'> Porcentaje con síntomas de "Depresion Moderada" o "Depresion Moderada Severa a Severa" </p>
+```{r echo=FALSE, fig.align='center'}
+g13.4 <- gr.line.freq.rec("depr", 'edadt', 'm0_sexo',
+                 data= subset(elsoc_panel_m1, ola == 2019),
+                 REC = c('Depresion Moderada', 'Depresion Moderada Severa a Severa'), limits_y = c(0,0.5),
+                 colores = c(.33,.66,-1))
+g13.4
+
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g13.4, NULL)` </small>
+---
+## Sintomatología depresiva, sexo y ocupación
+<p style='text-align: justify;'>
+La literatura revela que esta brecha de género en salud mental encuentra también relacionada con los roles de género tradicionales y las posiciones sociales dentro de los diferentes ámbitos de la vida privada y social, donde los roles femeninos se encuentran más asociados a la falta de elección, sobrecarga de roles y la subvaloración (Piccinelli & Wilkinson, 2000; Stoppard, 2000). Estos roles de género tradicionales vinculan lo masculino con el ámbito laboral y el sustento económico familiar, mientras que lo femenino con el cuidado de los hijos(as) y tareas del hogar.
+<br>
+<br>
+Sin embargo, producto de los cambios estructurales y culturales que se han producido en las últimas décadas, las mujeres que se quedan en la casa son cada vez menos valoradas. A su vez, las mujeres que se incorporan a la fuerza laboral enfrentan mayor riesgo de discriminación económica y desigualdad laboral que los hombres, además de exhibir un mayor riesgo de depresión debido a la sobrecarga de funciones y al conflicto de roles, ya que pese a tener un trabajo remunerado siguen estando al cuidado del hogar y los niños (Bebbington, 1996; Piccinelli y Wilkinson, 2000).
+<br>
+<br>
+Por su parte, el ingreso cada vez mayor de las mujeres al mercado laboral se presenta como un desafío para los hombres respecto a la definición tradicional de masculinidad, principalmente a su rol de sostenedor económico del hogar (Courtenay, 2000; Garfield, Clark-Kauffman, & Davis 2006).
+</p>
+---
+## Sintomatología depresiva, sexo y ocupación
+<p style='text-align: justify;'>
+Esta relación entre roles de género tradicionales, ocupación y depresión se observan en la Figura 13.5. En primer lugar, se observa que en cada categoría ocupacional existe una mayor proporción de mujeres con síntomas de depresión moderada o severa en comparación a los hombres, a excepción de la categoría desempleado, donde el 34% de los hombres tiene síntomas de depresión moderada o severa en comparación al 27% de las mujeres. Es posible que los hombres al no poder cumplir con su rol masculino de sostenedor económico del hogar experimentan mayores síntomas depresivos en comparación a las mujeres. Esto se complementa con que los hombres con trabajo remunerado son aquellos que tienen menor proporción con síntomas de depresión moderado a severo.
+<br>
+<br>
+Por otra parte, en torno a un 28% de las mujeres que tienen trabajo remunerado, o bien que están desempleadas o jubiladas/pensionadas exhiben síntomas de depresión moderada o severa. Donde se observa con preocupación una alta proporción de mujeres que experimentan síntomas de depresión moderada o moda severa es en el caso de aquellas donde se desempeñan en trabajos del hogar no remunerado. Cabe mencionar que no hay hombres en el estudio que se desempeñen en esta categoría de trabajo del hogar no remunerado, por lo que no es posible estimar este valor (Figura 13.5).
+</p>
+---
+### 13.5 Síntomas de Depresión según categoría ocupacional (año 2019)
+<p style='text-align: center;'> Porcentaje con síntomas de "Depresion Moderada" o "Depresion Moderada Severa a Severa" </p>
+```{r echo=FALSE, fig.align='center', fig.width=5.5, fig.height=2.3}
+g13.5 <- gr.bar.freq.rec("depr", var_x = "empleo", 'm0_sexo', REC=c('Depresion Moderada', 'Depresion Moderada Severa a Severa'), 
+                data = subset(elsoc_panel_m1, ola == 2019 & empleo != 'Otras categorías'), expand = T,
+                label_x = c('Trabajo remunerado','Trabajo doméstico no remunerado*','Desempleado/a', 'Jubilado/a o pensionado/a'))
+g13.5
+```
+<small> * En 2019 no hay hombres en la categoría Trabajo doméstico no remunerado </small> <br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g13.5, NULL)`</small>
+
+---
+class: center, middle
+background-image: url("Imagenes/fondo_modulo.jpg")
+background-position: center
+background-size: contain
+.pull-left[
+# Migración
+]
+---
+## Migración
+<p style='text-align: justify;'>
+Chile ha experimentado cambios muy significativos en la esfera política, económica, social y cultural. Entre otros aspectos, estos cambios han fortalecido la imagen internacional del país y contribuido a atraer a inmigrantes de la región y de otras partes del mundo, lo cual ha redundado en que Chile es hoy un país más diverso culturalmente hablando. Cuando los miembros de la sociedad de acogida – los chilenos en este caso- entran en contacto con personas y prácticas culturales distintas a la propia, pueden adoptar una disposición favorable hacia la inmigración en la medida que perciben que la llegada de personas de distintos países enriquecerá su matriz cultural, haciéndola más diversa y atractiva (Verkuyten, 2006) o bien pueden experimentar diversas formas de amenaza con el consiguiente desarrollo de actitudes negativas hacia la inmigración y conductas de evitación. 
+<br>
+<br>
+Al respecto, la evidencia muestra que la llegada de inmigrantes puede estimular el desarrollo de actitudes hostiles y xenofóbicas en sectores de la sociedad, especialmente en aquellos que perciben a los extranjeros como una amenaza (González, Sirlopú & Kessler, 2010; Stephan & Stephan, 2000; Green, 2009) en la medida que se piensa que ellos podrían demandar servicios y recursos públicos, reducir las oportunidades laborales para los nacionales (amenaza realista), o bien cambiar con sus prácticas culturales, los aspectos propios y distintivo de la cultura e identidad local (amenaza simbólica).
+</p>
+---
+## Amenaza realista y amenaza simbólica respecto a inmigrantes
+<p style='text-align: justify;'>
+Tal como lo revela la Figura 14.1, se ha visto una caída sistemática de los niveles de amenaza realista que experimentan los chilenos respecto de los inmigrantes peruanos, pasando de un 58% en 2016 a un 43% en 2019, que piensa que con la llegada de inmigrantes está aumentando el desempleo. Por su parte los inmigrantes haitianos despiertan niveles similares de amenaza, que son estables entre el 2018 y 2019. Los inmigrantes venezolanos en cambio despiertan niveles altos de amenaza en torno al 58%. Aun así, los niveles de amenaza realista son relativamente estables respecto de todos los grupos inmigrantes en general. Una tendencia relativamente similar se constata en el caso de los niveles de amenaza simbólica (con la llegada de inmigrantes Chile está perdiendo su identidad), donde se observa una caída sistemática de los niveles de amenaza simbólica a lo largo del tiempo en el caso de los inmigrantes peruanos y una leve caída en el caso de los inmigrantes haitianos. Los inmigrantes venezolanos despiertan niveles similares de amenaza simbólica la que generan los inmigrantes haitianos (Figura 14.2).
+<br>
+<br>
+Al comparar los niveles de niveles de amenaza realista y simbólica según grupos de inmigrantes el 2019 (fecha que por primeras vez son medidos todos los grupos), se observa, en primer lugar, que hay mayores niveles de amenaza realista que simbólica, lo que es común para todos los grupos de inmigrantes (Figura 14.3) aun cuando resalta el mayor nivel de amenaza realista que despiertan los inmigrantes venezolanos. Por otro lado, comparado con los inmigrantes venezolanos y haitianos, los inmigrantes peruanos despiertan menores niveles de amenaza realista y simbólica respecto de todos los otros grupos. 
+</p>
+---
+### 14.1 "Con la llegada de migrantes a Chile, está aumentando el desempleo", según ola y origen de migrantes
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center'}
+  
+g14.1 <- gr.line.freq.rec('amenaza_realista', var_x = 'ola', var_z = 'migrantes',
+                data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
+g14.1
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.1)` </small>
+
+---
+### 14.2 "Con la llegada de migrantes, Chile está perdiendo su identidad", según ola y origen de migrantes
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center'}
+g14.2 <- gr.line.freq.rec('amenaza_simbolica', var_x = 'ola', var_z = 'migrantes',
+                data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
+g14.2
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.2)`</small>
+---
+### 14.3 Confianza en migrantes, según ola y origen de migrantes
+<p style='text-align: center;'> Porcentaje de personas que responden "Bastante" o "Mucha confianza"</p>
+```{r echo=FALSE, fig.align='center'}
+g14.3 <- gr.line.freq.rec('confianza', var_x = 'ola', var_z = 'migrantes',
+                data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
+g14.3
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.3)`</small>
+
+---
+### 14.4 Percepción de amenaza realista y simbólica, según grupo de migrantes (2019)
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center', fig.width=5.5, fig.height=2}
+g14.4 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'migrantes', data = subset(elsoc_panel, ola == 2019),
+                     label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'), colores = c(0,.66,-1))
+g14.4
+```
+<br>
+<br>
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.4)`</small>
+
+---
+## Amenaza realista y simbólica respecto a inmigrantes según nivel educacional
+<p style='text-align: justify;'>
+Adicionalmente, estas formas de amenaza demostraron estar fuertemente relacionadas con el nivel educacional máximo alcanzado por las personas (Figura 14.5). En efecto, al analizar los niveles de amenaza en función del nivel de escolaridad de los participantes del estudio, se constataron diferencias muy sustantivas entre los niveles más bajos de escolaridad y los más altos, llegando en torno a un 75% y 57% de amenaza realista y simbólica, respectivamente, en los grupos que sólo lograron completar la escolaridad básica en comparación a los niveles observados en las personas que lograron educación universitaria completa o más, con un 27% y 16% amenaza simbólica y realista, respectivamente. Estas diferencias extremas revelan el importante rol que juega la educación formal en aminorar la amenaza percibida y su fuerte asociación con capital cultural y económico. 
+<br>
+<br>
+La evidencia revela que existe una fuerte asociación entre niveles de escolaridad y nivel socioeconómico, por lo que es posible inferir que los niveles de amenaza predominan en mayor medida en los grupos menos acomodados de la sociedad chilena como es el caso de otros países (Mc Laren, 2006). Los niveles de niveles de amenaza realista y simbólica también demostraron estar relacionadas con la edad de las personas, siendo los jóvenes quienes experimentan menores niveles de amenaza de ambos tipos (Figura 14.8).
+</p>
+---
+### 14.5 Percepción de amenaza realista y simbólica respecto a inmigrantes, según nivel educacional (2019)
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center'}
+
+g14.5 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'educ',  data = subset(elsoc_panel, ola == 2019),
+                                          label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'))
+g14.5
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g14.5)` </small>
+---
+## Amenaza realista y simbólica respecto a inmigrantes según frecuencia de contacto
+<p style='text-align: justify;'>
+Por último, no hay duda que uno de los efectos inmediatos que surgen de los procesos migratorios es que, tanto las personas que llegan a vivir a un nuevo país, como aquellas que los reciben tienen oportunidad de entrar en contacto. Al respecto existe bastante consenso en la literatura en reconocer el valor que representan las experiencias de contacto frecuentes y de buena calidad para promover el desarrollo de actitudes favorables hacia distintos grupos, es decir, como un vehículo de promoción de cohesión e integración social (Brown & Hewstone, 2005; González, Sirlopú & Kessler, 2010; Pettigrew & Tropp, 2006). 
+<br>
+<br>
+Tal como se observa en la Figura 14.6, se observa una asociación negativa entre frecuencia de contacto y niveles de amenaza realista y simbólica que experimentan los chilenos hacia los inmigrantes en general, de tal forma que, a medida que aumenta la frecuencia de contacto disminuyen las creencias de que la llegada de inmigrantes aumentará el desempleo o que Chile perderá su identidad. Al mismo tiempo, se constata que a medida que aumenta el contacto también aumenta la confianza hacia los inmigrantes en general (Figura 14.7).
+</p>
+---
+### 14.6 Percepción de Amenaza Realista y Simbólica, según frecuencia de contacto (2019)
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center'}
+
+g14.6 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'frecuencia_contacto',  
+                              data = subset(elsoc_panel, ola == 2019),
+                              label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'))
+g14.6
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g14.6)` </small>
+
+---
+### 14.7 Confianza en migrantes, según frecuencia de contacto (2019)
+<p style='text-align: center;'> Porcentaje de personas que responden "Bastante" o "Mucha confianza"</p>
+```{r echo=FALSE, fig.align='center'}
+g14.7 <- gr.bar.freq.rec('confianza', 'frecuencia_contacto', data = subset(elsoc_panel, ola == 2019))
+g14.7
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.7, NULL)`</small>
+
+---
+### 14.8 Percepción de amenaza realista y simbólica, según tramo de edad (2019)
+<p style='text-align: center;'> Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo"</p>
+```{r echo=FALSE, fig.align='center'}
+g14.8 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'edadt',  data = subset(elsoc_panel, ola == 2019),
+                                          label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'))
+g14.8
+```
+<br>
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.8)` </small>
+---
+
+## Frecuencia de Contacto y Confianza hacia los Inmigrantes
+<p style='text-align: justify;'>
+Acorde a lo esperado, los resultados también revelan que a medida que aumenta la frecuencia de contacto de los chilenos con los inmigrantes peruanos, haitianos, y venezolanos, aumentan significativamente los niveles de confianza (Figura 14.9) que exhiben hacia dichos grupos. Este patrón de resultados se manifiesta en todos los años del estudio. 
+
+<br>
+<br>
+Es importante destacar que los resultados expuestos no varían en función del grupo de inmigrantes evaluados (peruanos, haitianos y venezolanos). De manera global estos hallazgos confirman la importancia que reviste estimular experiencia de contacto positivo y de manera frecuente con los inmigrantes para promover actitudes favorables hacia ellos.
+
+</p>
+---
+### 14.9 Efecto de Frecuencia de Contacto con migrantes sobre niveles de confianza de chilenos hacia migrantes, según ola del estudio
+<p style='text-align: center;'> Porcentaje de personas que responden "Bastante" o "Mucha confianza"</p>
+
+```{r echo=FALSE, fig.align='center'}
+elsoc_panel$ola_mig <- factor(with(elsoc_panel, case_when(
+  ola == '2016' & migrantes == 'Peruanos' ~ 1,
+  ola == '2017' & migrantes == 'Peruanos' ~ 2,
+  ola == '2018' & migrantes == 'Peruanos' ~ 3,
+  ola == '2019' & migrantes == 'Peruanos' ~ 4,
+  ola == '2018' & migrantes == 'Haitianos' ~ 5,
+  ola == '2019' & migrantes == 'Haitianos' ~ 6,
+  ola == '2019' & migrantes == 'Venezolanos' ~ 7)),
+  labels = c('2016\nPeruanos', '2017\nPeruanos', '2018\nPeruanos', '2019\nPeruanos',
+             '2018\nHaitianos','2019\nHaitianos', '2019\nVenezolanos'))
+
+g14.9 <- gr.bar.freq.rec('confianza', 'ola_mig', 'frecuencia_contacto', data = subset(elsoc_panel),
+                         titulo_y = 'Confianza en exogrupo') +
+  theme(axis.title.y = element_text(size = rel(.75)))
+  
+g14.9
+
+g14.9N <- gr.bar.freq.rec('confianza', 'ola', 'frecuencia_contacto', 'migrantes', data = subset(elsoc_panel))
+
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.9N)` </small>
+---
+
+## Relevancia de las normas pro-contacto de cercanos
+<p style='text-align: justify;'>
+Dada la importancia que reviste el contacto para promover relaciones intergrupales positivas (confianza) y reducir los sentimientos de amenaza (simbólica y realista) asociados a la llegada de inmigrantes al país ELSOC analizó que factores promueven el contacto entre chilenos e inmigrantes peruanos, haitianos y venezolanos. El comportamiento de las personas se ve influenciado por las actitudes, valoraciones y acciones de otros. Esta influencia de terceros en el comportamiento individual se conoce como “normas sociales” y dictaminan que es apropiado o inapropiado hacer, pensar e incluso sentir (Paluck & Shepherd, 2012; Tankard & Paluck, 2016; González y cols, 2020)
+<br>
+<br>
+En este contexto, el interés principal está en el rol que cumple la red social más relevante de los chilenos, la familia y los amigos, como promotores del contacto con los inmigrantes peruanos y haitianos. ¿Exhiben mayores niveles de contacto con inmigrantes los chilenos cuyos familiares y amigos valoran o estimulan que ellos tengan relaciones de amistad con dichos grupos?
+
+</p>
+---
+
+## Relevancia de las normas pro-contacto de cercanos
+<p style='text-align: justify;'>
+Los resultados revelaron de manera significativa y estable en el tiempo una asociación positiva entre las normas pro-contacto de la familia y amigos sobre las actitudes hacia los inmigrantes peruanos, haitianos y venezolanos. Los chilenos que declaran que sus familiares y amigos valoran que ellos tengan relaciones de amistad con inmigrantes peruanos y haitianos (la norma pro contacto), efectivamente se juntan más frecuentemente con ellos (Figura 14.10) en comparación a aquellos chilenos cuyas normas pro-contacto son bajas o medias. Este patrón genérico es estable en el tiempo.
+<br>
+<br>
+Estos hallazgos confirman la importancia que revisten los referentes normativos sociales significativos, como los familiares y amigos, en la predicción de cambio de la conducta social como las experiencias de contacto con inmigrantes. He ahí la importancia de abordar a través de políticas públicas adecuada la formación de normas pro-contacto que estimulen mayor cohesión social particularmente en aquellos barrios conde coexisten una importante presencia de inmigrantes y población chilena.
+
+</p>
+---
+### 14.10 Efecto de normas pro-contacto de familia y amigos sobre Frecuencia de Contacto con migrantes, según ola del estudio
+
+<p style='text-align: center;'> Porcentaje de personas que responden Frecuencia de contacto con migrantes "Siempre" o "Casi siempre" </p>
+
+```{r echo=FALSE, fig.align='center'}
+g14.10 <- gr.bar.freq.rec('frecuencia_contacto', 'ola_mig', 'norma', data = subset(elsoc_panel), 
+                REC = 'Contacto Alto', expand = T, titulo_y = 'Frecuencia de contacto',
+                  label_color = c('Bajas normas pro-contacto', 'Nivel medio de normas pro-contacto', 'Altas normas pro-contacto')) +
+  theme(axis.title.y = element_text(size = rel(.75)))
+
+g14.10
+
+g14.10N <- gr.bar.freq.rec('frecuencia_contacto', 'ola', 'norma', 'migrantes', data = subset(elsoc_panel))
+
+```
+<small> Nota: Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.10N)` </small>
+---
+
+class: middle
+## Cómo citar este informe:
+<p style='text-align: justify;'>
+COES (2020) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2019. Presentación de Resultados COES. Septiembre, Santiago de Chile.
+</p>
+<br>
+<br>
+
+---
+background-image: url("Imagenes/portada.png")
+background-position: center
+background-size: contain

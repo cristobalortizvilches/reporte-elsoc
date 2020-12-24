@@ -1,0 +1,54 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+
+.book .book-summary {
+    background-color: #467fbf;
+}
+
+
+.book .book-body .page-wrapper .page-inner section.normal blockquote, .book .book-body .page-wrapper .page-inner section.normal dl, .book .book-body .page-wrapper .page-inner section.normal ol, .book .book-body .page-wrapper .page-inner section.normal p, .book .book-body .page-wrapper .page-inner section.normal table, .book .book-body .page-wrapper .page-inner section.normal ul {
+    margin-top: 0px;
+    margin-bottom: 0.85em;
+    text-align: justify;
+}
+
+
+.book.font-family-1 {
+  font-family: Georgia, serif;
+}
+.book.font-family-0 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.book .book-summary ul.summary li a:hover, .book .book-summary ul.summary li.active > a {
+    color: rgb(12, 31, 48);
+    background: 0px 0px;
+    text-decoration: none;
+}
+
+
+.book .book-summary ul.summary li a, .book .book-summary ul.summary li span {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: none;
+    color: #ffffff; /*color de letras en table of contents*/
+    background: 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
