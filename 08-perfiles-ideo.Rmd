@@ -7,7 +7,7 @@ editor_options:
 # Perfiles Ideológicos de los Chilenos 
 Más allá del eje izquierda-derecha ¿Cómo se estructura la ideología política de los chilenos?
 
-[Aquí encabezado]
+Ante el escenario político "líquido" que ha experimentado Chile durante la última década, surge la pregunta de cómo se estructura hoy el mapa ideológico de los chilenos. Si bien el eje izquierda-derecha tiene una larga historia en el ordenamiento de los partidos políticos chilenos, cerca de un tercio de la población no se identifica hoy con esta representación el 2019. La emergencia de nuevos actores y movimientos sociales refuerzan la necesidad de buscar más y nuevas herramientas interpretativas que permitan analizar con mayor profundidad la complejidad ideológica de la población.
 
 ## Clases latentes: Motivación
 
@@ -44,7 +44,7 @@ De este análisis de identificaron cuatro clases que se diferencian entre sí, y
 
 ### Perfiles ideológicos: Resultados principales
 
-Como puede observarse en la Figura 4.1, los progresistas corresponden al 24% de los entrevistados, y se caracterizan, más que ningún otro grupo, por apoyar un rol más activo del Estado en la provisión de servicios públicos de carácter más bien universalistas y con componentes solidarios. Al mismo tiempo adoptan muy mayoritariamente posiciones liberales en el plano moral-cultural, como es en el caso del aborto, o la adopción homoparental. El opuesto ideológico de este grupo son los Conservadores pro-mercado, correspondientes al 37%, quienes favorecen posiciones conservadoras en el plano moral (p. ej. que la educación sexual sea responsabilidad exclusiva de los padres), y respaldan políticas sociales focalizadas y la responsabilidad individual en pensiones. También son el grupo que más respalda la idea de que el país debe impedir mayormente el ingreso de inmigrantes al país.
+Como puede observarse en la Figura \@ref(fig:perfiles-ideo), los progresistas corresponden al 24% de los entrevistados, y se caracterizan, más que ningún otro grupo, por apoyar un rol más activo del Estado en la provisión de servicios públicos de carácter más bien universalistas y con componentes solidarios. Al mismo tiempo adoptan muy mayoritariamente posiciones liberales en el plano moral-cultural, como es en el caso del aborto, o la adopción homoparental. El opuesto ideológico de este grupo son los Conservadores pro-mercado, correspondientes al 37%, quienes favorecen posiciones conservadoras en el plano moral (p. ej. que la educación sexual sea responsabilidad exclusiva de los padres), y respaldan políticas sociales focalizadas y la responsabilidad individual en pensiones. También son el grupo que más respalda la idea de que el país debe impedir mayormente el ingreso de inmigrantes al país.
 
 
 Los Conservadores pro-estado, que alcanzan el 21% de la muestra, muestran bajos niveles de apoyo a políticas moral-culturales liberales, e incluso más bajos que sus contrapartes pro-mercado, pero también muestran menor apoyo a políticas sociales focalizadas o la responsabilidad individual en pensiones. Por último, los liberales bisagra (18%) tienden a adoptar posiciones intermedias entre los Progresistas y Conservadores. Se muestran más liberales en el plano moral-cultural que los Conservadores, pero también manifiestan mayor apoyo a la expansión de las capacidades del Estado, aunque no con la misma intensidad que los Progresistas.
@@ -53,14 +53,14 @@ Los Conservadores pro-estado, que alcanzan el 21% de la muestra, muestran bajos 
 A pesar de las grandes diferencias observables en los patrones de respuesta entre las clases, las opiniones referidas a educación pública y protección del medio ambiente muestran consensos muy claros en todos los grupos.
 
 
-La composición socioeconómica e ideológica de los tipos de ciudadanos son marcadamente diferentes. Tal como se muestra en el Figura 4.4 y 4.6, los progresistas tienen, en promedio, un nivel educativo alto (56% con educación superior técnica o universitaria), y una mayoría se identifica ideológicamente como de izquierda (44%) o centro (23%). Los conservadores, ya sean pro-estado o pro-mercado, tienen un nivel educacional más bajo (63% y 77%, respectivamente, tiene educación secundaria completa o menos), y son ideológicamente variados con presencia relevante en todos los grupos ideológicos, aunque algo menor en la izquierda, y algo mayor entre los que no se identifican. Los Liberales Bisagra, nuevamente, se ubican en una posición intermedia en ambas dimensiones.
+La composición socioeconómica e ideológica de los tipos de ciudadanos son marcadamente diferentes. Tal como se muestra en las Figuras \@ref(fig:educ-perfiles) y \@ref(fig:pospol-perfiles), los progresistas tienen, en promedio, un nivel educativo alto (56% con educación superior técnica o universitaria), y una mayoría se identifica ideológicamente como de izquierda (44%) o centro (23%). Los conservadores, ya sean pro-estado o pro-mercado, tienen un nivel educacional más bajo (63% y 77%, respectivamente, tiene educación secundaria completa o menos), y son ideológicamente variados con presencia relevante en todos los grupos ideológicos, aunque algo menor en la izquierda, y algo mayor entre los que no se identifican. Los Liberales Bisagra, nuevamente, se ubican en una posición intermedia en ambas dimensiones.
 
 
-Por último, las clases también muestran niveles muy variables de preferencia por el régimen democrático. Mientras este alcanza un 76% de apoyo entre los Progresistas, se reduce a un 62% entre Conservadores pro-estado, a un 60% entre Liberales Bisagra, y un 46% entre Conservadores pro-mercado (ver Figura 4.9).
+Por último, las clases también muestran niveles muy variables de preferencia por el régimen democrático. Mientras este alcanza un 76% de apoyo entre los Progresistas, se reduce a un 62% entre Conservadores pro-estado, a un 60% entre Liberales Bisagra, y un 46% entre Conservadores pro-mercado (ver Figura \@ref(fig:prefdem-perfiles)).
 
-### 4.1 Perfiles ideológicos de los chilenos (2019)
+<!-- ### 4.1 Perfiles ideológicos de los chilenos (2019) -->
 
-```{r, fig.height = 7.5, fig.width = 16, echo=FALSE, fig.align = 'center'}
+```{r perfiles-ideo, echo=FALSE, fig.height=7.5, fig.cap="Perfiles ideológicos de los chilenos (2019)"}
 lcmodel$clases2 <- factor(lcmodel$clases, levels=c("Progresistas","Liberales B",
                                                 "Conservadores E","Conservadores M"),
                         labels = c("Progresistas (24%)", "Liberales Bisagra (18%)",
@@ -94,8 +94,8 @@ ggplot(lcmodel,
 >  **Nota:**  Resultados sin ponderar. N = 2.085
 
 
-### 4.2. Sexo, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE, fig.align='center'}
+<!-- ### 4.2. Sexo, según Perfiles ideológicos de los chilenos (2019) -->
+```{r sexo-perfiles, echo=FALSE, fig.align='center', fig.cap="Sexo, según Perfiles ideológicos de los chilenos (2019)"}
 baseCL$CL <- factor(baseCL$CL,
                     labels = c('Progresistas', 'Liberales Bisagra', 'Conservadores Pro-Estado', 'Conservadores Pro-Mercado'))
 
@@ -106,8 +106,8 @@ n4.2
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.2, NULL)`
 
-### 4.3 Tramo etáreo, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE, fig.align='center'}
+<!-- ### 4.3 Tramo etáreo, según Perfiles ideológicos de los chilenos (2019) -->
+```{r edad-perfiles, echo=FALSE, fig.align='center',fig.cap="Tramo etáreo, según Perfiles ideológicos de los chilenos (2019)"}
 n4.3<- gr.bar.freq("edadt", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y =T, colores = c(0,.85,1))
 n4.3
 ```
@@ -115,8 +115,8 @@ n4.3
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.3, NULL)`
 
-### 4.4 Nivel educacional, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE, fig.align='center'}
+<!-- ### 4.4 Nivel educacional, según Perfiles ideológicos de los chilenos (2019) -->
+```{r educ-perfiles, echo=FALSE, fig.align='center',fig.cap="Nivel educacional, según Perfiles ideológicos de los chilenos (2019)"}
 n4.4<- gr.bar.freq("educ", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y =T)
 n4.4
 ```
@@ -124,8 +124,8 @@ n4.4
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.4, NULL)`
 
-### 4.5 Religión, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE, fig.align='center'}
+<!-- ### 4.5 Religión, según Perfiles ideológicos de los chilenos (2019) -->
+```{r relig-perfiles, echo=FALSE, fig.align='center',fig.cap="Religión, según Perfiles ideológicos de los chilenos (2019)"}
 n4.5<- gr.bar.freq("relig", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y =T, colores = c(0,.85,1))
 n4.5
 ```
@@ -133,8 +133,8 @@ n4.5
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.5, NULL)`
 
-### 4.6 Posición política, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.6 Posición política, según Perfiles ideológicos de los chilenos (2019) -->
+```{r pospol-perfiles,echo=FALSE, fig.cap="Posición política, según Perfiles ideológicos de los chilenos (2019)"}
 n4.6<- gr.bar.freq("idpoli", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y = T)
 n4.6
 ```
@@ -142,8 +142,8 @@ n4.6
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.6, NULL)`
 
-### 4.7 Interés en política, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.7 Interés en política, según Perfiles ideológicos de los chilenos (2019) -->
+```{r intpol-perfiles, echo=FALSE,fig.cap="Interés en política, según Perfiles ideológicos de los chilenos (2019)"}
 n4.7<- gr.bar.freq("c13", data = baseCL, var_x = "CL", posicion = 'stack')
 n4.7
 ```
@@ -151,8 +151,8 @@ n4.7
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.7, NULL)`
 
-### 4.8 Satisfacción con la Democracia, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.8 Satisfacción con la Democracia, según Perfiles ideológicos de los chilenos (2019) -->
+```{r satisf-perfiles, echo=FALSE,fig.cap="Satisfacción con la Democracia, según Perfiles ideológicos de los chilenos (2019)"}
 n4.8<- gr.bar.freq("c01", data = baseCL, var_x = "CL", posicion = 'stack')
 n4.8
 ```
@@ -160,8 +160,8 @@ n4.8
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.8, NULL)`
 
-### 4.9 Preferencia por la Democracia, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.9 Preferencia por la Democracia, según Perfiles ideológicos de los chilenos (2019) -->
+```{r prefdem-perfiles,echo=FALSE,fig.cap="Preferencia por la Democracia, según Perfiles ideológicos de los chilenos (2019)"}
 n4.9<- gr.bar.freq("c25", data = baseCL, var_x = "CL", posicion = 'stack')
 n4.9
 ```
@@ -169,15 +169,15 @@ n4.9
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.9, NULL)`
 
-### 4.10 Consistencia durante las 4 olas en Posición política, según Perfiles ideológicos de los chilenos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.10 Consistencia durante las 4 olas en Posición política, según Perfiles ideológicos de los chilenos (2019) -->
+```{r conspol-perfiles, echo=FALSE,fig.cap="Consistencia durante las 4 olas en Posición política, según Perfiles ideológicos de los chilenos (2019)"}
 n4.10<- gr.bar.freq("identidad.pospoli.long", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y = T)
 n4.10
 ```
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.10, NULL)`
 
-### 4.11 Consistencia durante las 4 olas en Identificación partidaria, según Perfiles ideológicos
-```{r, echo = FALSE}
+<!-- ### 4.11 Consistencia durante las 4 olas en Identificación partidaria, según Perfiles ideológicos -->
+```{r idpart-perfiles, echo=FALSE,fig.cap="Consistencia durante las 4 olas en Identificación partidaria, según Perfiles ideológicos"}
 n4.11<- gr.bar.freq("identidad.parti.long", var_x = "CL", data= baseCL, posicion = 'stack', reverse_y = T)
 n4.11
 ```
@@ -185,15 +185,15 @@ n4.11
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.11, NULL)`
 
-### 4.12 Consistencia durante las 4 olas en Identificación con coaliciones política, según Perfiles ideológicos (2019)
-```{r, echo = FALSE}
+<!-- ### 4.12 Consistencia durante las 4 olas en Identificación con coaliciones política, según Perfiles ideológicos (2019) -->
+```{r idcol-perfiles, echo=FALSE,fig.cap="Consistencia durante las 4 olas en Identificación con coaliciones política, según Perfiles ideológicos (2019)"}
 n4.12<- gr.bar.freq("identidad.coali.long", var_x = "CL", data= baseCL, posicion = 'stack')
 n4.12
 ```
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(n4.12, NULL)`
 
-### 4.13 Niveles de confianza social, según Perfiles ideológicos de los chilenos (2019)
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+<!-- ### 4.13 Niveles de confianza social, según Perfiles ideológicos de los chilenos (2019) -->
+```{r socconf-perfiles, echo=FALSE, message=FALSE, warning=FALSE,fig.cap="Niveles de confianza social, según Perfiles ideológicos de los chilenos (2019)"}
 library(car)
 #Confianza Social 1 - Confianza Social Generalizada
 baseCL$confsoc1 <- recode(as.numeric(baseCL$c02), "1=3; 2=1; 3=2")
@@ -209,7 +209,7 @@ baseCL$confsoc <- factor(baseCL$confsoc,levels = c(1,2,3),labels = c("Baja", "Me
 ```
 
 
-```{r, echo = FALSE}
+```{r confsoc, echo=FALSE}
 n4.13<- gr.bar.freq("confsoc", var_x = "CL", data= baseCL, posicion= 'stack')
 n4.13
 ```

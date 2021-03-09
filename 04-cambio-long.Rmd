@@ -6,7 +6,7 @@ editor_options:
 
 # Principales hallazgos longitudinales
 
-## Nota Explicativa
+**Nota Explicativa**
 
 A continuación, se presentan los principales resultados de la encuesta ELSOC elaborados por investigadores del Centro de Conflicto y Cohesión Social (COES). Dada la diversidad de temas que son abordados en la encuesta, los investigadores colaboradores utilizaron diversos enfoques teóricos y herramientas empíricas en su análisis. Sin embargo, en Radiografía del Cambio Social se han definido una serie de criterios comunes para el desarrollo de resultados empíricos:
 
@@ -17,7 +17,7 @@ A continuación, se presentan los principales resultados de la encuesta ELSOC el
 - Utilización del diseño muestral complejo (ponderador muestral ajustado a población regional y sexo, estrato y conglomerado muestral) en el desarrollo de figuras descriptivas y pruebas inferenciales. 
 
 
-## Levantamiento durante estallido social
+**Levantamiento durante estallido social**
 
 El año 2019 correspondía levantar la cuarta ola de la Muestra 1 y la segunda ola de la Muestra 2 de ELSOC. El trabajo de terreno estaba programado para iniciarse el sábado 19 de Octubre de 2019, pero debido al estallido social ocurrido el 18 de Octubre, este debió ser suspendido hasta el jueves 21 de noviembre. El trabajo de terreno culminó el 9 de marzo del 2020.
 

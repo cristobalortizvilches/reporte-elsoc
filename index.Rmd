@@ -4,7 +4,7 @@ subtitle: "Resultados longitudinales 2016-2019"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib, book-ocs.bib]
+bibliography: [book.bib, packages.bib, book-ocs.bib, book-reporte-elsoc.bib]
 csl: "inputs/bib/apa-no-ampersand.csl"
 biblio-style: apalike
 link-citations: yes

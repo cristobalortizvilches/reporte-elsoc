@@ -7,7 +7,7 @@ editor_options:
 # Conflicto de Clases y Élites
 ¿Cómo se caracteriza la dinámica de conflicto entre clases sociales? 
 
-[Aquí encabezado]
+Como los recursos sociales no están repartidos de manera igualitaria entre personas (educación, ingresos, patrimonio, capital social, entre otros), se forman clases sociales, es decir, conjuntos de personas que comparten una misma posición en la sociedad en base a su relación con los medios de producción y su lugar en el mercado laboral. 
 
 
 
@@ -22,59 +22,58 @@ Para medir las relaciones intergrupales a nivel de las clases sociales, se les p
 | Contacto Positivo              	| Cuándo interactúa con personas de clase social alta/baja, ¿cuán amistosa   ha sido esa experiencia?                                                                                                                                                                                                                                                                                                                    	|
 | Contacto Negativo              	| ¿Con qué frecuencia ha tenido usted malas experiencias con personas de   clase social alta/baja, tales como desacuerdos, tensiones, peleas o   conflictos?                                                                                                                                                                                                                                                             	|
 
-En términos de relaciones entre clases sociales, los resultados arrojan que para el año 2019 el contacto con clases altas y bajas es segregado y asimétrico. Tal como indica la Figura 5.1, sólo el 16% de las personas se identifican como de clase social baja reportan contacto frecuente con personas de clase alta, mientras que esta cifra asciende a 49% entre aquellos que se identifican como de clase alta. En contraste, los entrevistados reportan niveles muy similares, variación que fluctúa entre un 72% y 82%, de contacto frecuente con personas de clase baja, independiente de su propia auto ubicación social. 
+En términos de relaciones entre clases sociales, los resultados arrojan que para el año 2019 el contacto con clases altas y bajas es segregado y asimétrico. Tal como indica la Figura \@ref(fig:d01-d13), sólo el 16% de las personas se identifican como de clase social baja reportan contacto frecuente con personas de clase alta, mientras que esta cifra asciende a 49% entre aquellos que se identifican como de clase alta. En contraste, los entrevistados reportan niveles muy similares, variación que fluctúa entre un 72% y 82%, de contacto frecuente con personas de clase baja, independiente de su propia auto ubicación social. 
 
 
-Se reitera el patrón segregado y asimétrico en el reporte de contacto positivo entre las distintas clases sociales, aunque las diferencias son de menor intensidad. La Figura 5.2 revela niveles muy altos de contacto positivo con personas de clase baja (sobre el 80% para las tres clases sociales), mientras que el contacto positivo con personas de clase alta asciende desde un 40% entre personas se identifican como de clase social baja, hasta un 59% entre aquellos que se identifican como de clase social alta. Al revisar el contacto negativo (ver Figura 5.3), se puede constatar que los niveles reportados son muy bajos, si bien los encuestados que se identifican como de clase baja reporta niveles más elevados (10% versus un 3% entre los que se identifican como de clase alta).
+Se reitera el patrón segregado y asimétrico en el reporte de contacto positivo entre las distintas clases sociales, aunque las diferencias son de menor intensidad. La Figura  \@ref(fig:d08-d14) revela niveles muy altos de contacto positivo con personas de clase baja (sobre el 80% para las tres clases sociales), mientras que el contacto positivo con personas de clase alta asciende desde un 40% entre personas se identifican como de clase social baja, hasta un 59% entre aquellos que se identifican como de clase social alta. Al revisar el contacto negativo (ver Figura \@ref(fig:d09-d15)), se puede constatar que los niveles reportados son muy bajos, si bien los encuestados que se identifican como de clase baja reporta niveles más elevados (10% versus un 3% entre los que se identifican como de clase alta).
 
 
-### 5.1 Frecuencia de contacto con clase alta y clase baja, según clase social subjetiva del entrevistado (2019)
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.1 Frecuencia de contacto con clase alta y clase baja, según clase social subjetiva del entrevistado (2019) -->
+```{r d01-d13, echo=FALSE, fig.align='center',fig.cap='Frecuencia de contacto con clase alta y clase baja, según clase social subjetiva del entrevistado (2019)'}
 g5.1 <- gr.bar.freq.rec.list(c("d07", 'd13'), 'clase.sub', data = subset(elsoc_panel_m2, ola == 2019),
                     label_x = c('Contacto con clase alta', 'Contacto con clase baja'))
 g5.1
 
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.1, 'var_x')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.1, 'var_x')`
 
 
 
-### 5.2 Contacto positivo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019)
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.2 Contacto positivo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019) -->
+```{r d08-d14, echo=FALSE, fig.align='center',fig.cap='Contacto positivo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019)'}
 g5.2 <- gr.bar.freq.rec.list(c("d08", 'd14'), 'clase.sub', data = subset(elsoc_panel_m2, ola == 2019),
                     label_x = c('Contacto positivo con clase alta', 'Contacto positivo con clase baja'))
 
 g5.2
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.2, 'var_x')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.2, 'var_x')`
 
 
-### 5.3 Contacto negativo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019)
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.3 Contacto negativo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019) -->
+```{r d09-d15, echo=FALSE, fig.align='center',fig.cap='Contacto negativo con personas de clase alta y clase baja, según clase social subjetiva del entrevistado (2019)'}
 g5.3 <- gr.bar.freq.rec.list(c("d09", 'd15'), 'clase.sub', data = subset(elsoc_panel_m2, ola == 2019),
                     label_x = c('Contacto negativo con clase alta', 'Contacto negativo con clase baja'))
 g5.3
 
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.3, 'var_x')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g5.3, 'var_x')`
 
 
 
 ### Clases sociales y Trato Justo
 
 
-En la Figura 5.7 destaca de sobremanera como la gran mayoría de los encuestados ELSOC perciben que las personas de clase alta son tratadas frecuentemente con respeto, mientras que otros grupos sociales como personas pobres, adultos mayores o mujeres, obtienen porcentajes marcadamente menores. 
+En la Figura \@ref(fig:freq-respeto) destaca de sobremanera como la gran mayoría de los encuestados ELSOC perciben que las personas de clase alta son tratadas frecuentemente con respeto, mientras que otros grupos sociales como personas pobres, adultos mayores o mujeres, obtienen porcentajes marcadamente menores. 
 
 
-Al considerar el trato respetuoso que se le da a las personas en distintos ámbitos sociales según la auto identificación de la clase social de los entrevistados, se observa que entre el año 2018 y 2019 las percepciones se han tendido a mantener estables entre aquellos que se identifican como de clase alta, mientras que han tendido a bajar entre las otras clases (ver Figuras 5.8 - 5.11). En la percepción de trato respetuoso por parte de Carabineros se observa una de las bajas más marcadas, particularmente en las clases sociales más bajas pasando de un 39% en 2018 a un 16% en 2019. 
+Al considerar el trato respetuoso que se le da a las personas en distintos ámbitos sociales según la auto identificación de la clase social de los entrevistados, se observa que entre el año 2018 y 2019 las percepciones se han tendido a mantener estables entre aquellos que se identifican como de clase alta, mientras que han tendido a bajar entre las otras clases (ver Figuras \@ref(fig:c35-1-clasesub) - \@ref(fig:35-4-clasesub)). En la percepción de trato respetuoso por parte de Carabineros se observa una de las bajas más marcadas, particularmente en las clases sociales más bajas pasando de un 39% en 2018 a un 16% en 2019. 
 
 
-### 5.7 ¿Con cuánta frecuencia diría que personas de los siguientes grupos son tratadas con respeto...?
-Porcentaje que responde frecuencia "Alta"   
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.7 ¿Con cuánta frecuencia diría que personas de los siguientes grupos son tratadas con respeto...? Porcentaje que responde frecuencia "Alta"    -->
+```{r freq-respeto, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que personas de los siguientes grupos son tratadas con respeto...? Porcentaje que responde frecuencia "Alta"'}
 g3.7 <- gr.bar.freq.rec.list(c("d25_01", "d25_02", "d25_03", "d25_04", "d25_05", "d25_06"),
                    label_x = c("Pobres", "Clase media", "Clase alta", "Jovenes", "Adultos mayores", "Mujeres"),
                     data = elsoc_panel,
@@ -83,53 +82,50 @@ g3.7 <- gr.bar.freq.rec.list(c("d25_01", "d25_02", "d25_03", "d25_04", "d25_05",
 g3.7
 
 ```
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.7)`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.7)`
 
 
-### 5.8 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en los servicios de salud?, según clase social subjetiva del entrevistado
-Porcentaje que responde "Casi siempre" o "Siempre" 
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.8 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en los servicios de salud?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"  -->
+```{r c35-1-clasesub, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en los servicios de salud?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"'}
 g3.8 <- gr.bar.freq.rec("c35_01", var_x = "clase.sub", 
               var_z = 'ola',
              data = elsoc_panel_m2)
 g3.8
 ```
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.8, 'var_z')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.8, 'var_z')`
 
 
 ### 5.9 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en el trabajo?, según clase social subjetiva del entrevistado
 Porcentaje que responde "Casi siempre" o "Siempre" 
-```{r echo=FALSE, fig.align='center'}
+```{r c35-2-clasesub, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en el trabajo?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"'}
 
 g3.9 <- gr.bar.freq.rec("c35_02", var_x = "clase.sub", 
               var_z = 'ola',
              data = elsoc_panel_m2)
 g3.9
 ```
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.9, 'var_z')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.9, 'var_z')`
 
-### 5.10 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de Carabineros?, según clase social subjetiva del entrevistado
-Porcentaje que responde "Casi siempre" o "Siempre" 
+<!-- ### 5.10 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de Carabineros?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"  -->
 
-```{r echo=FALSE, fig.align='center'}
+```{r c35-3-clasesub, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de Carabineros?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"'}
 g3.10 <- gr.bar.freq.rec("c35_03", var_x = "clase.sub", 
               var_z = 'ola',
              data = elsoc_panel_m2)
 g3.10
 ```
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.10, 'var_z')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.10, 'var_z')`
 
-### 5.11 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de la Clase Alta?, según clase social subjetiva del entrevistado
-Porcentaje que responde "Casi siempre" o "Siempre" 
+<!-- ### 5.11 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de la Clase Alta?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"  -->
 
-```{r echo=FALSE, fig.align='center'}
+```{r c35-4-clasesub, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto por parte de la Clase Alta?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"'}
 g3.11 <- gr.bar.freq.rec("c35_04", var_x = "clase.sub", 
               var_z = 'ola',
              data = elsoc_panel_m2)
 g3.11
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.11, 'var_z')`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.11, 'var_z')`
 
 ## Deprivación Relativa
 
@@ -152,17 +148,16 @@ En ELSOC medimos ambos componentes en las siguientes preguntas:
 ---
 
 
-La Figura 5.12 revela un patrón muy interesante. Por una parte, cuando se consideran los indicadores individuales de deprivación, se constata consistentemente que un porcentaje alto de las personas encuestadas percibe que se siente privilegiada en comparación a “otros como yo” (70%) y al mismo tiempo solo un 27% se siente insatisfecho al compararse con ‘otros como yo’. En contraste, la comparación relativa a nivel grupal arroja patrones invertidos. Mientras que un 49% de los entrevistados menciona que se siente insatisfecha al compararse con ‘clases más altas’, el porcentaje de respuestas que indican que su clase social es privilegiada se reduce a un 41%. 
+La Figura \@ref(fig:depriv-rel) revela un patrón muy interesante. Por una parte, cuando se consideran los indicadores individuales de deprivación, se constata consistentemente que un porcentaje alto de las personas encuestadas percibe que se siente privilegiada en comparación a “otros como yo” (70%) y al mismo tiempo solo un 27% se siente insatisfecho al compararse con ‘otros como yo’. En contraste, la comparación relativa a nivel grupal arroja patrones invertidos. Mientras que un 49% de los entrevistados menciona que se siente insatisfecha al compararse con ‘clases más altas’, el porcentaje de respuestas que indican que su clase social es privilegiada se reduce a un 41%. 
 
 
-Tanto la derivación relativa a nivel individual como a nivel grupal tienden a disminuir progresivamente entre las personas que se identifican como miembros de clase social media y alta (ver Figura 5.13).
+Tanto la derivación relativa a nivel individual como a nivel grupal tienden a disminuir progresivamente entre las personas que se identifican como miembros de clase social media y alta (ver Figura \@ref(fig:depriv-estatus)).
 
 
 
 
-### 5.12 Grado de deprivación Relativa según las siguientes categorías (2019)
-Suma de Respuestas "De acuerdo" y ”Totalmente de acuerdo" 
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.12 Grado de deprivación Relativa según las siguientes categorías (2019) Suma de Respuestas "De acuerdo" y ”Totalmente de acuerdo"  -->
+```{r depriv-rel, echo=FALSE, fig.align='center',fig.cap='Grado de deprivación Relativa según las siguientes categorías (2019) Suma de Respuestas "De acuerdo" y ”Totalmente de acuerdo"'}
 g3.12 <- gr.bar.freq.rec.list(c("d27_01", "d27_02", "d27_03", "d27_04", "d27_05"),
                      label_x = c("Insatisfaccion al compararme con otros",
                                  "Privilegiado en comparacion a otros",
@@ -174,10 +169,10 @@ g3.12
 
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.12)`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.12)`
 
-### 5.13 Grado de deprivación relativa individual y grupal, según clase social subjetiva (2019)
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.13 Grado de deprivación relativa individual y grupal, según clase social subjetiva (2019) -->
+```{r depriv-estatus, echo=FALSE, fig.align='center',fig.cap="Grado de deprivación relativa individual y grupal, según clase social subjetiva (2019)"}
 g3.13 <- gr.bar.media.list(c("dep.grup", "dep.indi"),
                      var_z = "clase.sub",
                     data = subset(elsoc_panel, ola == 2019),
@@ -189,16 +184,15 @@ g3.13
 ```
 
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.13)`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.13)`
 
 
 ## Percepción de elites
 
-En 2019 se incluyó en el estudio una serie de preguntas acerca de la percepción que tienen los encuestados frente a las elites. Los resultados de la Figura 5.14 revelan que existen percepciones muy prevalentes respecto a que los “poderosos operan de manera interesada”, no importándoles las personas común y corrientes, y que la “justicia los favorece”. Estas percepciones son mayoritarias, independiente de la clase social subjetiva a la que se adscribe el encuestado, aunque entre aquellos que se identifican como de clase alta son, en términos relativos, menos dominantes. 
+En 2019 se incluyó en el estudio una serie de preguntas acerca de la percepción que tienen los encuestados frente a las elites. Los resultados de la Figura \@ref(fig:elites-estatus) revelan que existen percepciones muy prevalentes respecto a que los “poderosos operan de manera interesada”, no importándoles las personas común y corrientes, y que la “justicia los favorece”. Estas percepciones son mayoritarias, independiente de la clase social subjetiva a la que se adscribe el encuestado, aunque entre aquellos que se identifican como de clase alta son, en términos relativos, menos dominantes. 
 
-### 5.14 Percepción de las elites, según clase social subjetiva (2019)
-Porcentaje que responde "De acuerdo" y "Totalmente de acuerdo" 
-```{r echo=FALSE, fig.align='center'}
+<!-- ### 5.14 Percepción de las elites, según clase social subjetiva (2019) Porcentaje que responde "De acuerdo" y "Totalmente de acuerdo"  -->
+```{r elites-estatus, echo=FALSE, fig.align='center',fig.cap='Percepción de las elites, según clase social subjetiva (2019) Porcentaje que responde "De acuerdo" y "Totalmente de acuerdo"'}
 g3.14 <- gr.bar.freq.rec.list(c("d24_01", "d24_02", "d24_03", "d24_04"), var_z='clase.sub',
                      label_x = c("A los poderosos no le importan personas como uno",
                                  "Los poderosos son indolentes con problemas de mi barrio",
@@ -209,7 +203,7 @@ g3.14
 
 ```
 
- Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.14)`
+> **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.14)`
 
 
 

@@ -9,7 +9,6 @@ editor_options:
 
 Todas las sociedades se ven enfrentadas al desafío de reducir el uso de la violencia para resolver las controversias o conflictos. Cuando los miembros de una sociedad justifican el uso de la violencia, la probabilidad de ocurrencia de hechos violentos aumenta sistemáticamente (Markowitz, 2001) y se corre el riesgo de que ocurra una escalada que lleve a disminuir drásticamente la seguridad de las personas.
 
-
 La diversidad de formas de la violencia que se encuentran tanto en el Chile de hoy, como en cualquier sociedad a lo largo de su historia, justifica la necesidad de abordar su evolución a lo largo del tiempo. En ELSOC se analizará la evolución de dos tipos de violencia: violencia para el control social y violencia para el cambio social.
 
 
