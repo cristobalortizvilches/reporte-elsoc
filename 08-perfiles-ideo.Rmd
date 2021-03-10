@@ -15,7 +15,7 @@ Ante el escenario político "líquido" que ha experimentado Chile durante la úl
 Ante el escenario político "líquido" que ha experimentado Chile durante la última década, surge la pregunta de cómo se estructura hoy el mapa ideológico de los chilenos. Si bien el eje izquierda-derecha tiene una larga historia en el ordenamiento de los partidos políticos chilenos, cerca de un tercio de la población no se identifica hoy con esta representación el 2019. La emergencia de nuevos actores y movimientos sociales refuerzan la necesidad de buscar más y nuevas herramientas interpretativas que permitan analizar con mayor profundidad la complejidad ideológica de la población.
 
 
-Inspirados en las conceptualizaciones de Feldman (2014), en ELSOC 2019 se incorporaron una serie de preguntas orientadas a evaluar distintas preferencias acerca de diversos temas políticos de relevancia nacional referidos a cuestiones socio-económicos y moral-culturales. A los encuestados se les consultó su nivel de acuerdo con las frases que se presentan en la siguiente lámina.
+Inspirados en las conceptualizaciones de @feldman_Understanding_2014, en ELSOC 2019 se incorporaron una serie de preguntas orientadas a evaluar distintas preferencias acerca de diversos temas políticos de relevancia nacional referidos a cuestiones socio-económicos y moral-culturales. A los encuestados se les consultó su nivel de acuerdo con las frases que se presentan en la siguiente lámina.
 
 
 ### Batería de preguntas

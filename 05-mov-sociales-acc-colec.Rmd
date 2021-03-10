@@ -25,7 +25,7 @@ La Figura \@ref(fig:freq-mov) refuerza este resultado al mostrar que la particip
 
 
 
-### 1.1 ¿Cuál es el movimiento social que usted más valora de esta lista? Según ola del estudio 
+<!-- ### 1.1 ¿Cuál es el movimiento social que usted más valora de esta lista? Según ola del estudio  -->
 ```{r mov, echo=FALSE, fig.align='left',fig.cap="¿Cuál es el movimiento social que usted más valora de esta lista? Según ola del estudio"}
 g1.1 <- gr.bar.freq(var_y = 'ola', var_x = 'mov', suma100 = 'y', no_label_texto = T,
                     data = subset(elsoc_panel_m1, ola == 2018 | ola == 2019), expand=T, limits_y = c(0,.4),
@@ -38,7 +38,7 @@ g1.1
 ```
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g1.1, 'var_y')` 
 
-### 1.2 Frecuencia de participación en movimientos sociales, según Ola de encuesta. Porcentaje que responde A veces, Frecuentemente o Muy frecuentemente 
+<!-- ### 1.2 Frecuencia de participación en movimientos sociales, según Ola de encuesta. Porcentaje que responde A veces, Frecuentemente o Muy frecuentemente  -->
 ```{r freq-mov, echo=FALSE, fig.align='center', fig.cap="Frecuencia de participación en movimientos sociales, según Ola de encuesta. Porcentaje que responde A veces, Frecuentemente o Muy frecuentemente"}
 g1.2 <-  gr.bar.freq.rec.list(c('freq_mov_w04','freq_mov_w03', 'freq_mov_w02', 'freq_mov_w01'),  var_z=NULL,
                               REC = c('A veces', 'Frecuentemente o muy frecuentemente'),
@@ -51,13 +51,12 @@ g1.2
 
 ## Estallido social y aumento en la participación en movimientos sociales
 
-El análisis del cambio individual en los niveles de participación en movimientos sociales sugiere cierta estabilidad entre los años 2016 y 2018; en contraste para el año 2019 se produce un marcado incremento desde un 21% que había aumentado su participación entre el 2017 y 2018 a un 39% que lo hace entre los años 2018 y 2019 (Figura 1.3).
+El análisis del cambio individual en los niveles de participación en movimientos sociales sugiere cierta estabilidad entre los años 2016 y 2018; en contraste para el año 2019 se produce un marcado incremento desde un 21% que había aumentado su participación entre el 2017 y 2018 a un 39% que lo hace entre los años 2018 y 2019 (Figura \@ref(fig:cambio-freq)).
 
 
-Este aumento tiende a ser más agudo entre personas jóvenes (18 a 29 años, Figura 1.4), con educación superior universitaria (Figura 1.5), y particularmente entre aquellos con amigos políticamente activos, sugiriendo un efecto de influencia social normativa (Figura 1.7). Las personas con posicionamiento de izquierda y de centro aumentaron la frecuencia de participación entre el 2018 y 2019 en mayor medida que aquellas que se identifican con la derecha o se declaran independientes, cuya tasa de cambio es menor al promedio de la muestra (Figura 1.6).
+Este aumento tiende a ser más agudo entre personas jóvenes (18 a 29 años, Figura \@ref(fig:cambio-freq-edad)), con educación superior universitaria (Figura \@ref(fig:cambio-freq-educ)), y particularmente entre aquellos con amigos políticamente activos, sugiriendo un efecto de influencia social normativa (Figura \@ref(fig:cambio-freq-amig)). Las personas con posicionamiento de izquierda y de centro aumentaron la frecuencia de participación entre el 2018 y 2019 en mayor medida que aquellas que se identifican con la derecha o se declaran independientes, cuya tasa de cambio es menor al promedio de la muestra (Figura \@ref(fig:cambio-freq-ideo)).
 
-
-La Figura 1.8 revela que las personas exhiben amplios sentimientos de rabia por el nivel de desigualdad y el costo de la vida en Chile, así como rabia y miedo hcia el actuar de Carabineros y de Manifestantes violentos en manifestaciones. Tal como lo revela la Figura 1.9, la participación en movimientos sociales estuvo asociada positivamente a sentimientos de rabia por los niveles de desigualdad y costo de la vida (mayor participación a medida que aumenta la rabia) (Figura 1.10). Por otro lado, quienes exhibieron menores niveles de rabia o miedo hacia manifestantes violentos mostraron mayores niveles participación en movimientos sociales (Figura 1.11).
+La Figura \@ref(fig:rabia-miedo)  revela que las personas exhiben amplios sentimientos de rabia por el nivel de desigualdad y el costo de la vida en Chile, así como rabia y miedo hcia el actuar de Carabineros y de Manifestantes violentos en manifestaciones. Tal como lo revela la Figura \@ref(fig:freq-rabia-ineq), la participación en movimientos sociales estuvo asociada positivamente a sentimientos de rabia por los niveles de desigualdad y costo de la vida (mayor participación a medida que aumenta la rabia) (Figura \@ref(fig:freq-rabia-carab) ). Por otro lado, quienes exhibieron menores niveles de rabia o miedo hacia manifestantes violentos mostraron mayores niveles participación en movimientos sociales (Figura \@ref(fig:freq-rabia-violent)).
 
 
 <!-- ### 1.3 Cambio en Frecuencia de participación en movimientos sociales, según ola de encuesta -->

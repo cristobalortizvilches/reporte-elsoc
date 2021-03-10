@@ -69,7 +69,7 @@ g5.3
 En la Figura \@ref(fig:freq-respeto) destaca de sobremanera como la gran mayoría de los encuestados ELSOC perciben que las personas de clase alta son tratadas frecuentemente con respeto, mientras que otros grupos sociales como personas pobres, adultos mayores o mujeres, obtienen porcentajes marcadamente menores. 
 
 
-Al considerar el trato respetuoso que se le da a las personas en distintos ámbitos sociales según la auto identificación de la clase social de los entrevistados, se observa que entre el año 2018 y 2019 las percepciones se han tendido a mantener estables entre aquellos que se identifican como de clase alta, mientras que han tendido a bajar entre las otras clases (ver Figuras \@ref(fig:c35-1-clasesub) - \@ref(fig:35-4-clasesub)). En la percepción de trato respetuoso por parte de Carabineros se observa una de las bajas más marcadas, particularmente en las clases sociales más bajas pasando de un 39% en 2018 a un 16% en 2019. 
+Al considerar el trato respetuoso que se le da a las personas en distintos ámbitos sociales según la auto identificación de la clase social de los entrevistados, se observa que entre el año 2018 y 2019 las percepciones se han tendido a mantener estables entre aquellos que se identifican como de clase alta, mientras que han tendido a bajar entre las otras clases (ver Figuras \@ref(fig:c35-1-clasesub) - \@ref(fig:c35-4-clasesub)). En la percepción de trato respetuoso por parte de Carabineros se observa una de las bajas más marcadas, particularmente en las clases sociales más bajas pasando de un 39% en 2018 a un 16% en 2019. 
 
 
 <!-- ### 5.7 ¿Con cuánta frecuencia diría que personas de los siguientes grupos son tratadas con respeto...? Porcentaje que responde frecuencia "Alta"    -->
@@ -95,8 +95,8 @@ g3.8
 > **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.8, 'var_z')`
 
 
-### 5.9 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en el trabajo?, según clase social subjetiva del entrevistado
-Porcentaje que responde "Casi siempre" o "Siempre" 
+<!-- ### 5.9 ¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en el trabajo?, según clase social subjetiva del entrevistado -->
+<!-- Porcentaje que responde "Casi siempre" o "Siempre"  -->
 ```{r c35-2-clasesub, echo=FALSE, fig.align='center',fig.cap='¿Con cuánta frecuencia diría que las personas de su clase social son tratadas con respeto en el trabajo?, según clase social subjetiva del entrevistado Porcentaje que responde "Casi siempre" o "Siempre"'}
 
 g3.9 <- gr.bar.freq.rec("c35_02", var_x = "clase.sub", 
@@ -122,19 +122,18 @@ g3.10
 g3.11 <- gr.bar.freq.rec("c35_04", var_x = "clase.sub", 
               var_z = 'ola',
              data = elsoc_panel_m2)
-g3.11
+g3.11 
 ```
 
 > **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g3.11, 'var_z')`
 
 ## Deprivación Relativa
 
-La deprivación relativa corresponde a la experiencia psicológica que emerge cuando una persona al compararse con otros individuos (o a su grupo en relación a otros grupos), percibe que no está recibiendo el reconocimiento o los recursos que se siente merecedora (frustración), en relación con otras personas o grupos (Grant y Brown, 1995).
+La deprivación relativa corresponde a la experiencia psicológica que emerge cuando una persona al compararse con otros individuos (o a su grupo en relación a otros grupos), percibe que no está recibiendo el reconocimiento o los recursos que se siente merecedora (frustración), en relación con otras personas o grupos [@grant_Ethnocentrism_1995].
 
 Esta percepción de deprivación, individual o grupal, gatilla la emergencia de sentimiento de injusticia, insatisfacción y descontento ante la frustración. La deprivación relativa puede expresarse entonces a nivel individual y grupal dependiendo de cual identidad y referente de comparación se ocupa.
 
 En ELSOC medimos ambos componentes en las siguientes preguntas:
-
 
 
 | Dimensión                                      	| Pregunta (Grado de acuerdo)                                                                 	|
@@ -145,16 +144,11 @@ En ELSOC medimos ambos componentes en las siguientes preguntas:
 | Depreprivación Relativa Grupal (inversa)       	| Mi clase social es privilegiada en comparación a otras 	|
 | Depreprivación Relativa Grupal                 	| Las personas de mi clase están peor que las de clases mas altas  	|
 
----
-
 
 La Figura \@ref(fig:depriv-rel) revela un patrón muy interesante. Por una parte, cuando se consideran los indicadores individuales de deprivación, se constata consistentemente que un porcentaje alto de las personas encuestadas percibe que se siente privilegiada en comparación a “otros como yo” (70%) y al mismo tiempo solo un 27% se siente insatisfecho al compararse con ‘otros como yo’. En contraste, la comparación relativa a nivel grupal arroja patrones invertidos. Mientras que un 49% de los entrevistados menciona que se siente insatisfecha al compararse con ‘clases más altas’, el porcentaje de respuestas que indican que su clase social es privilegiada se reduce a un 41%. 
 
 
 Tanto la derivación relativa a nivel individual como a nivel grupal tienden a disminuir progresivamente entre las personas que se identifican como miembros de clase social media y alta (ver Figura \@ref(fig:depriv-estatus)).
-
-
-
 
 <!-- ### 5.12 Grado de deprivación Relativa según las siguientes categorías (2019) Suma de Respuestas "De acuerdo" y ”Totalmente de acuerdo"  -->
 ```{r depriv-rel, echo=FALSE, fig.align='center',fig.cap='Grado de deprivación Relativa según las siguientes categorías (2019) Suma de Respuestas "De acuerdo" y ”Totalmente de acuerdo"'}
