@@ -56,6 +56,8 @@ table_format = if(is_html_output()) {
 
 fullw = if(is_html_output()) {T} else if(is_latex_output()) {F}
 fsize = if(is_html_output()) {14} else if(is_latex_output()) {8}
+
+ggplot2::theme_set(new = theme_test(base_family = "serif"))
 ```
 
 # Introducción al reporte

@@ -23,11 +23,11 @@ bookdown::gitbook:
       vk: no
       all: ['facebook', 'twitter', 'linkedin']
     info: no
-bookdown::pdf_book:
-#  template: null
-  includes:
-    in_header: preamble.tex
-    before_body: frontpage.tex
-  latex_engine: pdflatex
-  citation_package: natbib
-  keep_tex: yes
+# bookdown::pdf_book:
+# #  template: null
+#   includes:
+#     in_header: preamble.tex
+#     before_body: frontpage.tex
+#   latex_engine: pdflatex
+#   citation_package: natbib
+#   keep_tex: yes
