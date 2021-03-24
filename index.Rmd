@@ -73,10 +73,26 @@ El Centro de Estudios de Conflicto y Cohesión Social (COES) desarrolla investig
 COES está patrocinado por la Universidad de Chile y la Pontificia Universidad Católica de Chile, y como instituciones asociadas se encuentran la Universidad Diego Portales y la Universidad Adolfo Ibáñez. COES cuenta con el apoyo del Fondo de Financiamiento de Centros de Investigación en Áreas Prioritarias (FONDAP, dependiente de la Agencia Nacional de Investigación y Desarrollo (ANID) del Ministerio de Ciencia, Tecnología, Conocimiento e Innovación. ELSOC además cuenta como socio al Instituto Milenio para la Investigación en Depresión y Personalidad (MIDAP).
 
 
-
 ```{r out.width = '30%', echo = FALSE, fig.align = 'center'}
 knitr::include_graphics("inputs/images/anid_midap.png") 
 ```
+
+**Cómo citar este informe:**
+
+> COES (2020) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2019. Presentación de Resultados COES. Septiembre, Santiago de Chile.
+
+```{bibtex,eval=F,include=T}
+@techreport{coes_Radiografia_2020,
+  title = {Radiograf\'ia Del {{Cambio Social}}: {{An\'alisis}} de {{Resultados Longitudinales ELSOC}} 2016-2019.},
+  author = {COES},
+  year = {2020},
+  month = sep,
+  address = {{Santiago de Chile, Chile}},
+  institution = {{Centro de Estudios de Conflicto y Cohesi\'on Social}}
+}
+
+```
+
 
 ## Equipo Ejecutivo
 

@@ -51,4 +51,15 @@ pre code {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
+
+
+
+.book .book-body .page-wrapper .page-inner section.normal pre {
+    overflow: auto;
+    font-size: small;
+    word-wrap: normal;
+    margin: 0 0 1.275em;
+    padding: .85em 1em;
+    background: #f7f7f7;
+}
 }

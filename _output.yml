@@ -23,6 +23,7 @@ bookdown::gitbook:
       vk: no
       all: ['facebook', 'twitter', 'linkedin']
     info: no
+    
 # bookdown::pdf_book:
 # #  template: null
 #   includes:

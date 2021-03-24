@@ -225,8 +225,3 @@ g7.20
 
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.20)`
 
-## Cómo citar este informe:
-
-COES (2020) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2019. Presentación de Resultados COES. Septiembre, Santiago de Chile.
-
-

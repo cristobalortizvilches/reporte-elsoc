@@ -7,12 +7,12 @@ editor_options:
 # Actitudes hacia la democracia
 ¿Cómo ha cambiado el apego y la satisfacción hacia el regímen democrático?
 
-Por largo tiempo se ha pensado que la estabilidad del régimen democrático depende de la legitimidad que tiene la democracia entre los ciudadanos [@almond_Civic_2016; @norris_Critical_1999; @Dalton2015]. En base a esto, se hace necesario monitorear la evolución del apoyo y satisfacción a la democracia, y estudiar sus implicancias en el comportamiento político de las personas y sus posibles consecuencias a nivel institucional.
+Por largo tiempo se ha pensado que la estabilidad del régimen democrático depende de la legitimidad que tiene la democracia entre los ciudadanos [@almond_Civic_2016; @norris_Critical_1999; @dalton_Citizen_2014]. En base a esto, se hace necesario monitorear la evolución del apoyo y satisfacción a la democracia, y estudiar sus implicancias en el comportamiento político de las personas y sus posibles consecuencias a nivel institucional.
 
 
 ## Apoyo a la Democracia
 
-Se ha conceptualizado que la estabilidad del régimen democrático depende de la legitimidad que tiene la democracia entre los ciudadanos [@almond_Civic_2016; @norris_Critical_1999; @Dalton2015]. En esta línea, se presenta a continuación la evolución del apoyo a la democracia entre la población encuestada.
+Se ha conceptualizado que la estabilidad del régimen democrático depende de la legitimidad que tiene la democracia entre los ciudadanos [@almond_Civic_2016; @norris_Critical_1999; @dalton_Citizen_2014]. En esta línea, se presenta a continuación la evolución del apoyo a la democracia entre la población encuestada.
 
 
 En la Figura \@ref(fig:c25) se muestra que el apoyo a la democracia crece de manera muy significativa entre 2016 y 2019 desde un 48% hasta un 60%, a costa principalmente de las alternativas ‘Ninguna’ y ‘En algunos casos un gobierno autoritario puede ser preferible’. La alternativa de indiferencia (‘Da los mismo un régimen democrático o autoritario’) se mantiene estable entre mediciones, pero cerca de la mitad de las personas que mencionan esta alternativa en 2019 optaron por otra respuesta en 2016.
