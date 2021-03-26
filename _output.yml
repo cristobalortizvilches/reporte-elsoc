@@ -1,4 +1,6 @@
 bookdown::gitbook:
+  # includes:
+  #     in_header: header.html
   split_by: section
   css: style.css
   config:
@@ -23,6 +25,7 @@ bookdown::gitbook:
       vk: no
       all: ['facebook', 'twitter', 'linkedin']
     info: no
+    
     
 # bookdown::pdf_book:
 # #  template: null

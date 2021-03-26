@@ -1,0 +1,16 @@
+# Cómo citar este informe: {-}
+
+:::{.blue-box}
+> COES (2020) Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2019. Presentación de Resultados COES. Septiembre, Santiago de Chile.
+:::
+
+```{r,echo=TRUE,eval=FALSE}
+@techreport{coes_Radiografia_2020,
+  title = {Radiograf\'ia Del {{Cambio Social}}: {{An\'alisis}} de {{Resultados Longitudinales ELSOC}} 2016-2019.},
+  author = {COES},
+  year = {2020},
+  month = sep,
+  address = {{Santiago de Chile, Chile}},
+  institution = {{Centro de Estudios de Conflicto y Cohesi\'on Social}}
+}
+```

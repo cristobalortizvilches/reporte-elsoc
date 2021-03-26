@@ -11,14 +11,14 @@ ELSOC analizó el estatus subjetivo y constató que en general las personas tien
 
 
 <!-- ### 11.1 En nuestra sociedad, hay grupos que tienden a ubicarse en los niveles más altos y grupos que tienden a ubicarse en los niveles más bajos de la sociedad ¿Dónde se ubicaría usted?, según ola de estudio. -->
-```{r essind-ola,echo=FALSE, fig.align='center',fig.cap='En nuestra sociedad, hay grupos que tienden a ubicarse en los niveles más altos y grupos que tienden a ubicarse en los niveles más bajos de la sociedad ¿Dónde se ubicaría usted?, según ola de estudio.'}
+```{r essind-ola, fig.align='center',fig.cap='En nuestra sociedad, hay grupos que tienden a ubicarse en los niveles más altos y grupos que tienden a ubicarse en los niveles más bajos de la sociedad ¿Dónde se ubicaría usted?, según ola de estudio.'}
 g11.1 <- gr.bar.freq(var_y = "clase.sub", var_x = "ola", posicion = 'stack', reverse_y = T)
 g11.1
 ```
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g11.1)` 
 
 <!-- ### 11.2 Cambios de Clase social subjetiva entre 2016 y 2019 -->
-```{r ess-wave,echo=FALSE, fig.align='center',fig.cap='Cambios de Clase social subjetiva entre 2016 y 2019'}
+```{r ess-wave, fig.align='center',fig.cap='Cambios de Clase social subjetiva entre 2016 y 2019'}
 g11.2 <- gr.alluvial.freq("clase.sub", data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), reverse_y=T)
 g11.2
 ```
@@ -26,7 +26,7 @@ g11.2
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.2)` 
 
 <!-- ### 11.3 Clase social subjetiva, según quintiles de ingreso (2019) -->
-```{r ess-quintil,echo=FALSE, fig.align='center',fig.cap='Clase social subjetiva, según quintiles de ingreso (2019)'}
+```{r ess-quintil, fig.align='center',fig.cap='Clase social subjetiva, según quintiles de ingreso (2019)'}
 g11.3 <- gr.bar.freq('clase.sub', var_x = 'quintil', data = subset(elsoc_panel, ola == 2019),
             posicion = 'stack', reverse_y = T)
 g11.3
@@ -35,7 +35,7 @@ g11.3
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.3, NULL)`
 
 <!-- ### 11.4  Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019) -->
-```{r esshijos-ess,echo=FALSE, fig.align='center',fig.cap='Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019)'}
+```{r esshijos-ess, fig.align='center',fig.cap='Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019)'}
 g11.4 <- gr.bar.freq('clase.sub.hijos', 'clase.sub', data = subset(elsoc_panel, ola == 2019),
             posicion = 'stack', reverse_y = T, titulo_x = 'Clase social subjetiva propia')
 g11.4
@@ -51,7 +51,7 @@ Los resultados en la Figura \@ref(fig:merit-wave) revelan un alto consenso al id
 
 
 <!-- ### 11.5  Percepción de importancia y recompensas del mérito, según ola de estudio. Porcentaje de Respuestas "De acuerdo" y ”Totalmente de acuerdo".  -->
-```{r merit-wave,echo=FALSE, fig.align='center',fig.cap='Percepción de importancia y recompensas del mérito, según ola de estudio. Porcentaje de Respuestas "De acuerdo" y ”Totalmente de acuerdo".'}
+```{r merit-wave, fig.align='center',fig.cap='Percepción de importancia y recompensas del mérito, según ola de estudio. Porcentaje de Respuestas "De acuerdo" y ”Totalmente de acuerdo".'}
 elsoc_panel_m1 <- elsoc_panel_m1 %>%
   mutate(d05_02_rec = factor(d05_02, labels = c('1','2','3','4','5')),
          d05_04_rec = factor(d05_04, labels = c('1','2','3','4','5')),

@@ -22,7 +22,7 @@ Tal como se aprecia en la Figura \@ref(fig:just-vio-ola), existe en general, un 
 
 <!-- ### 6.1 Justificación de la violencia en relación a delincuencia, según ola de encuesta -->
 
-```{r just-vio-ola, echo=FALSE, fig.aligN='center', fig.cap='Justificación de la violencia en relación a delincuencia, según ola de encuesta'}
+```{r just-vio-ola, fig.aligN='center', fig.cap='Justificación de la violencia en relación a delincuencia, según ola de encuesta'}
 g4.1 <- gr.bar.freq.list(c('f05_01_rec', 'f05_02_rec'), 'ola', modo = 2, posicion = 'stack',
                      label_list = c('Personas persigan y golpeen a un delincuente\n que acaba de cometer un asalto',
                                  'Personas amarren a un poste y desnuden a un\n delincuente que acaba de cometer un asalto'), 
@@ -47,7 +47,7 @@ Cuando se consulta por el nivel de justificación de la violencia en contra de C
 
 
 <!-- ### 6.2 Justificación de la violencia en relación al actuar de Carabineros, según ola -->
-```{r just-carab-ola, echo=FALSE, fig.aligN='center',fig.cap="Justificación de la violencia en relación al actuar de Carabineros, según ola"}
+```{r just-carab-ola, fig.aligN='center',fig.cap="Justificación de la violencia en relación al actuar de Carabineros, según ola"}
 g4.2 <- gr.bar.freq.list(c('f05_03_rec', 'f05_04_rec', 'f05_07_rec'),
                          'ola', modo = 2, posicion = 'stack',
                      label_list = c('Carabineros use la fuerza para\n reprimir manifestación pacífica',
@@ -73,7 +73,7 @@ Sin embargo, se constatan importantes variaciones en función de la edad, el niv
 
 
 <!-- ### 6.3 Justificación de la violencia para el cambio social (2019) -->
-```{r just-vio-cambio, echo=FALSE, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019)"}
+```{r just-vio-cambio, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019)"}
 g4.3 <- gr.bar.freq.list(c('f05_09_rec', 'f05_10_rec', 'f05_11_rec', 't16_rec', 't17_rec'), posicion = 'stack',
                      label_list = c('Personas incendien o dañen inmobiliario publico',
                                  'Personas incendien o dañen medios de transporte',
@@ -87,7 +87,7 @@ g4.3
 
 
 <!-- ### 6.4 Justificación de la violencia para el cambio social (2019), según tramo de edad -->
-```{r just-cambio-edad, echo=FALSE, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019), según tramo de edad"}
+```{r just-cambio-edad, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019), según tramo de edad"}
 g4.4 <- gr.bar.freq('just_violencia_cambio', 'edadt', posicion = 'stack', reverse_y=F)
 g4.4
 ```
@@ -96,7 +96,7 @@ g4.4
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.4, NULL)`
 
 <!-- ### 6.5 Justificación de la violencia para el cambio social (2019), según nivel educacional -->
-```{r just-cambio-educ, echo=FALSE, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019), según nivel educacional"}
+```{r just-cambio-educ, fig.aligN='center',fig.cap="Justificación de la violencia para el cambio social (2019), según nivel educacional"}
 g4.5 <- gr.bar.freq('just_violencia_cambio', 'educ', posicion = 'stack')
 g4.5
 ```
@@ -105,7 +105,7 @@ g4.5
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.5, NULL)`
 
 <!-- ### 6.6 Justificación de la violencia para el cambio social (2019), según asistencia a marchas pacíficas -->
-```{r just-cambio-marcha, echo=FALSE, fig.align='center',fig.cap="Justificación de la violencia para el cambio social (2019), según asistencia a marchas pacíficas"}
+```{r just-cambio-marcha, fig.align='center',fig.cap="Justificación de la violencia para el cambio social (2019), según asistencia a marchas pacíficas"}
 g4.6 <- gr.bar.freq('just_violencia_cambio', 'c08_02', posicion = 'stack', titulo_x = 'Frecuencia de asistencia a marchas pacificas')
 g4.6
 ```
@@ -114,7 +114,7 @@ g4.6
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.6, NULL)`
 
 <!-- ### 6.7 Yo estaría dispuesto a participar en acciones más radicales, si pensara que no existen otras alternativas viables para promover el cambio social -->
-```{r radical, echo=FALSE, fig.align='center',fig.cap="Yo estaría dispuesto a participar en acciones más radicales, si pensara que no existen otras alternativas viables para promover el cambio social"}
+```{r radical, fig.align='center',fig.cap="Yo estaría dispuesto a participar en acciones más radicales, si pensara que no existen otras alternativas viables para promover el cambio social"}
 g4.7 <- gr.bar.freq('f07_02')
 g4.7
 ```
@@ -122,7 +122,7 @@ g4.7
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.7)`
 
 <!-- ### 6.8 Estaría dispuesto a participar en acciones radicales, según grupo de edad y sexo (2019) Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"  -->
-```{r radical-sexo-edad, echo=FALSE, fig.align='center',fig.cap='Estaría dispuesto a participar en acciones radicales, según grupo de edad y sexo (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"'}
+```{r radical-sexo-edad, fig.align='center',fig.cap='Estaría dispuesto a participar en acciones radicales, según grupo de edad y sexo (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"'}
 g4.8 <- gr.bar.freq.rec('f07_02',  'm0_sexo', 'edadt', data = subset(elsoc_panel, ola == 2019))
 g4.8
 ```
@@ -130,7 +130,7 @@ g4.8
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.8, NULL)`
 
 <!-- ### 6.9 Estaría dispuesto a participar en acciones radicales, según Posición ideológica (2019) Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"  -->
-```{r radical-ideol, echo=FALSE, fig.align='center',fig.cap='Estaría dispuesto a participar en acciones radicales, según Posición ideológica (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"'}
+```{r radical-ideol, fig.align='center',fig.cap='Estaría dispuesto a participar en acciones radicales, según Posición ideológica (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo"'}
 g4.9 <- gr.bar.freq.rec('f07_02', 'pos_id', data = subset(elsoc_panel, ola == 2019))
 g4.9
 ```
@@ -138,7 +138,7 @@ g4.9
  >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g4.9, NULL)`
 
 <!-- ### 6.10 Estaría dispuesto a acciones radicales, según Justificación de la violencia para el cambio social -->
-```{r radical-cambio, echo=FALSE, fig.align='center',fig.cap="Estaría dispuesto a acciones radicales, según Justificación de la violencia para el cambio social"}
+```{r radical-cambio, fig.align='center',fig.cap="Estaría dispuesto a acciones radicales, según Justificación de la violencia para el cambio social"}
 g4.10 <- gr.bar.freq.rec('f07_02', 'just_violencia_cambio',
                          data = subset(elsoc_panel_m1, ola == 2019))
 g4.10

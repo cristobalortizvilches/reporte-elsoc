@@ -103,7 +103,7 @@ El diseño de ELSOC contempló entrevistar a 3.000 personas en su primera medici
 <!-- ## Atrición de la Muestra Original según Territorio -->
 
 
-```{r atricion-territorio, echo=FALSE, fig.align='center', fig.height=1, out.height="150%", out.width="150%", fig.cap='Atrición de la Muestra Original según Territorio',results='asis'}
+```{r atricion-territorio, fig.align='center', fig.height=1, out.height="150%", out.width="150%", fig.cap='Atrición de la Muestra Original según Territorio',results='asis'}
 # knitr::include_graphics("inputs/images/atricion_territorio.jpg")
 options(knitr.kable.NA = '')
 col_names <- c("","","2016","2017","2018","2019","2016-2017","2017-2018","2016-2018","2016-2019")
@@ -117,7 +117,7 @@ xlsx::read.xlsx(file = "inputs/tables.xlsx",sheetName = "atri-territorio",encodi
 
 <!-- ## Atrición Muestral Original según sexo y edad* -->
 
-```{r atricion-sexo-edad, echo=FALSE, fig.align='center', fig.height=1, out.height="150%", out.width="150%", fig.cap="Atrición Muestral Original según sexo y edad*"}
+```{r atricion-sexo-edad, fig.align='center', fig.height=1, out.height="150%", out.width="150%", fig.cap="Atrición Muestral Original según sexo y edad*"}
 # knitr::include_graphics("inputs/images/atricion_sexo_edad.jpg")
 col_names <- c("","2016","2017","2018","2019","2016-2017","2017-2018","2016-2018","2016-2019")
 
@@ -133,7 +133,7 @@ xlsx::read.xlsx(file = "inputs/tables.xlsx",sheetName = "atri-sexo-edad",encodin
 <!-- *El paso de los años entre olas hace que los sujetos cambien de categoría etaria. El porcentaje recuperado asociado a edad debe considerarse como indicativo. -->
  
 <!-- ## Atrición de la Muestra refresco según Territorio -->
-```{r atricion-ref-territorio, echo=FALSE, fig.align='center', fig.height=1, out.height="150%", out.width="150%",fig.cap="Atrición de la Muestra refresco según Territorio"}
+```{r atricion-ref-territorio, fig.align='center', fig.height=1, out.height="150%", out.width="150%",fig.cap="Atrición de la Muestra refresco según Territorio"}
 # knitr::include_graphics("inputs/images/atricion_ref_territorio.jpg")
 col_names <- c("","","2018","2019","2016-2019") 
 xlsx::read.xlsx(file = "inputs/tables.xlsx",sheetName = "atri-refresco-territorio",encoding = "UTF-8",startRow = 2) %>% 
@@ -145,7 +145,7 @@ xlsx::read.xlsx(file = "inputs/tables.xlsx",sheetName = "atri-refresco-territori
 
 
 <!-- ## Atrición de la Muestra Refresco según sexo y edad* -->
-```{r atricion-ref-sexo-edad, echo=FALSE, fig.align='center', fig.height=1, out.height="100%", out.width="100%",fig.cap="Atrición de la Muestra Refresco según sexo y edad*"}
+```{r atricion-ref-sexo-edad, fig.align='center', fig.height=1, out.height="100%", out.width="100%",fig.cap="Atrición de la Muestra Refresco según sexo y edad*"}
 # knitr::include_graphics("inputs/images/atricion_ref_sexo_edad.jpg") 
 col_names <- c("","2018","2019","2018-2019") 
 
@@ -167,7 +167,7 @@ ELSOC ha ya completado cuatro mediciones anuales (2016, 2017, 2018 y 2019), laps
 A continuación, describimos la muestra original de ELSOC en sus mediciones 2016 (N = 2.927), 2017 (N = 2.473), 2018 (N = 2.229) y 2019 (N = 2.153), según sexo, edad, educación, religión y zona de residencia. Todos los resultados presentados incorporan las principales características del diseño muestral complejo del estudio. Es decir, Se utiliza el ponderador muestral ajustado a población regional y sexo, estrato y conglomerado muestral.
 
 <!-- ##  Composición de Muestra según sexo y ola del estudio -->
-```{r m0-sexo, echo=FALSE, fig.align='center',fig.cap=" Composición de Muestra según sexo y ola del estudio"}
+```{r m0-sexo, fig.align='center',fig.cap=" Composición de Muestra según sexo y ola del estudio"}
 gr.bar.n('m0_sexo', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), posicion = 'stack')
 ```
 
@@ -175,28 +175,28 @@ gr.bar.n('m0_sexo', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), pos
 
 
 <!-- ##  Composición de Muestra según edad y ola del estudio -->
-```{r edadt, echo=FALSE, fig.align='center',fig.cap="Composición de Muestra según edad y ola del estudio"}
+```{r edadt, fig.align='center',fig.cap="Composición de Muestra según edad y ola del estudio"}
 gr.bar.n('edadt', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), posicion = 'stack')
 ```
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo) 
 
 <!-- ##  Composición de Muestra según educación y ola del estudio -->
-```{r educ, echo=FALSE, fig.align='center',fig.cap="Composición de Muestra según educación y ola del estudio"}
+```{r educ, fig.align='center',fig.cap="Composición de Muestra según educación y ola del estudio"}
 gr.bar.n('educ', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), posicion = 'stack')
 ```
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo) 
 
 <!-- ##  Composición de Muestra según religión y ola del estudio -->
-```{r relig, echo=FALSE, fig.align='center',fig.cap="Composición de Muestra según religión y ola del estudio"}
+```{r relig, fig.align='center',fig.cap="Composición de Muestra según religión y ola del estudio"}
 gr.bar.n('relig', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), posicion = 'stack')
 ```
 
 >  **Nota:**  Resultados Ponderados (con Diseño Muestral Complejo) 
 
 <!-- ## Composición de Muestra según zona de residencia y ola del estudio -->
-```{r estrato, echo=FALSE, fig.align='center',fig.cap="Composición de Muestra según zona de residencia y ola del estudio"}
+```{r estrato, fig.align='center',fig.cap="Composición de Muestra según zona de residencia y ola del estudio"}
 gr.bar.n('estrato', 'ola', 'muestra', data = elsoc_long, limits_y=c(0,3000), posicion = 'stack')
 ```
 

@@ -10,7 +10,7 @@ Tal como lo revela la Figura \@ref(fig:amen1-wave), se ha visto una caída siste
 
 
 <!-- ### 14.1 "Con la llegada de migrantes a Chile, está aumentando el desempleo", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen1-wave,echo=FALSE, fig.align='center',fig.cap='Con la llegada de migrantes a Chile, está aumentando el desempleo", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen1-wave, fig.align='center',fig.cap='Con la llegada de migrantes a Chile, está aumentando el desempleo", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
   
 g14.1 <- gr.line.freq.rec('amenaza_realista', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
@@ -20,7 +20,7 @@ g14.1
 
 
 <!-- ### 14.2 "Con la llegada de migrantes, Chile está perdiendo su identidad", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen2-wave, echo=FALSE, fig.align='center',fig.cap='"Con la llegada de migrantes, Chile está perdiendo su identidad", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen2-wave, fig.align='center',fig.cap='"Con la llegada de migrantes, Chile está perdiendo su identidad", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 g14.2 <- gr.line.freq.rec('amenaza_simbolica', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
 g14.2
@@ -30,7 +30,7 @@ g14.2
 Al comparar los niveles de niveles de amenaza realista y simbólica según grupos de inmigrantes el 2019 (fecha que por primeras vez son medidos todos los grupos), se observa, en primer lugar, que hay mayores niveles de amenaza realista que simbólica, lo que es común para todos los grupos de inmigrantes (Figura \@ref(fig:confmig-wave)) aun cuando resalta el mayor nivel de amenaza realista que despiertan los inmigrantes venezolanos. Por otro lado, comparado con los inmigrantes venezolanos y haitianos, los inmigrantes peruanos despiertan menores niveles de amenaza realista y simbólica respecto de todos los otros grupos. 
 
 <!-- ### 14.3 Confianza en migrantes, según ola y origen de migrantes. Porcentaje de personas que responden "Bastante" o "Mucha confianza". -->
-```{r confmig-wave,echo=FALSE, fig.align='center',fig.cap='Confianza en migrantes, según ola y origen de migrantes. Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
+```{r confmig-wave, fig.align='center',fig.cap='Confianza en migrantes, según ola y origen de migrantes. Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
 g14.3 <- gr.line.freq.rec('confianza', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
 g14.3
@@ -40,7 +40,7 @@ g14.3
 
 
 <!-- ### 14.4 Percepción de amenaza realista y simbólica, según grupo de migrantes (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen3-wave,echo=FALSE, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica, según grupo de migrantes (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen3-wave, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica, según grupo de migrantes (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 g14.4 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'migrantes', data = subset(elsoc_panel, ola == 2019),
                      label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'), colores = c(0,.66,-1))
 g14.4
@@ -58,7 +58,7 @@ La evidencia revela que existe una fuerte asociación entre niveles de escolarid
 
 
 <!-- ### 14.5 Percepción de amenaza realista y simbólica respecto a inmigrantes, según nivel educacional (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen-educ,echo=FALSE, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica respecto a inmigrantes, según nivel educacional (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen-educ, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica respecto a inmigrantes, según nivel educacional (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 
 g14.5 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'educ',  data = subset(elsoc_panel, ola == 2019),
                                           label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'))
@@ -75,7 +75,7 @@ Tal como se observa en la Figura \@ref(fig:amen-contacto), se observa una asocia
 
 
 <!-- ### 14.6 Percepción de Amenaza Realista y Simbólica, según frecuencia de contacto (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen-contacto,echo=FALSE, fig.align='center',fig.cap='Percepción de Amenaza Realista y Simbólica, según frecuencia de contacto (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen-contacto, fig.align='center',fig.cap='Percepción de Amenaza Realista y Simbólica, según frecuencia de contacto (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 
 g14.6 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'frecuencia_contacto',  
                               data = subset(elsoc_panel, ola == 2019),
@@ -87,7 +87,7 @@ g14.6
 
 
 <!-- ### 14.7 Confianza en migrantes, según frecuencia de contacto (2019). Porcentaje de personas que responden "Bastante" o "Mucha confianza". -->
-```{r conf-contacto,echo=FALSE, fig.align='center',fig.cap='Confianza en migrantes, según frecuencia de contacto (2019). Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
+```{r conf-contacto, fig.align='center',fig.cap='Confianza en migrantes, según frecuencia de contacto (2019). Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
 g14.7 <- gr.bar.freq.rec('confianza', 'frecuencia_contacto', data = subset(elsoc_panel, ola == 2019))
 g14.7
 ```
@@ -96,7 +96,7 @@ g14.7
 
 
 <!-- ### 14.8 Percepción de amenaza realista y simbólica, según tramo de edad (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo". -->
-```{r amen-edad,echo=FALSE, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica, según tramo de edad (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
+```{r amen-edad, fig.align='center',fig.cap='Percepción de amenaza realista y simbólica, según tramo de edad (2019). Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 g14.8 <- gr.bar.freq.rec.list(c('amenaza_realista', 'amenaza_simbolica'), 'edadt',  data = subset(elsoc_panel, ola == 2019),
                                           label_x = c('Aumenta el desempleo', 'Chile pierde su identidad'))
 g14.8 
@@ -111,7 +111,7 @@ Acorde a lo esperado, los resultados también revelan que a medida que aumenta l
 
 <!-- ### 14.9 Efecto de Frecuencia de Contacto con migrantes sobre niveles de confianza de chilenos hacia migrantes, según ola del estudio. Porcentaje de personas que responden "Bastante" o "Mucha confianza". -->
 
-```{r contact-conf,echo=FALSE, fig.align='center',fig.cap='Efecto de Frecuencia de Contacto con migrantes sobre niveles de confianza de chilenos hacia migrantes, según ola del estudio. Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
+```{r contact-conf, fig.align='center',fig.cap='Efecto de Frecuencia de Contacto con migrantes sobre niveles de confianza de chilenos hacia migrantes, según ola del estudio. Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
 elsoc_panel$ola_mig <- factor(with(elsoc_panel, case_when(
   ola == '2016' & migrantes == 'Peruanos' ~ 1,
   ola == '2017' & migrantes == 'Peruanos' ~ 2,
@@ -146,7 +146,7 @@ Los resultados revelaron de manera significativa y estable en el tiempo una asoc
 
 <!-- ### 14.10 Efecto de normas pro-contacto de familia y amigos sobre Frecuencia de Contacto con migrantes, según ola del estudio. Porcentaje de personas que responden Frecuencia de contacto con migrantes "Siempre" o "Casi siempre".  -->
 
-```{r normas-contacto,echo=FALSE, fig.align='center',fig.cap='Efecto de normas pro-contacto de familia y amigos sobre Frecuencia de Contacto con migrantes, según ola del estudio. Porcentaje de personas que responden Frecuencia de contacto con migrantes "Siempre" o "Casi siempre".'}
+```{r normas-contacto, fig.align='center',fig.cap='Efecto de normas pro-contacto de familia y amigos sobre Frecuencia de Contacto con migrantes, según ola del estudio. Porcentaje de personas que responden Frecuencia de contacto con migrantes "Siempre" o "Casi siempre".'}
 g14.10 <- gr.bar.freq.rec('frecuencia_contacto', 'ola_mig', 'norma', data = subset(elsoc_panel), 
                 REC = 'Contacto Alto', expand = T, titulo_y = 'Frecuencia de contacto',
                   label_color = c('Bajas normas pro-contacto', 'Nivel medio de normas pro-contacto', 'Altas normas pro-contacto')) +

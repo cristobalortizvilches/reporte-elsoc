@@ -31,7 +31,7 @@ Por últimos, los resultados revelan que existen cambios importantes en el grado
 
 
 <!-- ### 7.1 Caracterización de la opinión pública sobre el cambio constitucional -->
-```{r consti-opi, echo=FALSE, fig.aligN='center',fig.cap='Caracterización de la opinión pública sobre el cambio constitucional'}
+```{r consti-opi, fig.aligN='center',fig.cap='Caracterización de la opinión pública sobre el cambio constitucional'}
 
 elsoc_panel_m1 <- elsoc_panel_m1 %>% 
   mutate(c26_rec = factor(c26, labels = c('1','2','3','4','5')),
@@ -55,7 +55,7 @@ g7.1
 
 <!-- ### 7.2 ¿Con qué frecuencia conversa usted sobre un posible cambio de la Constitución con amigos, familiares o conocidos?. Porcentaje que responde "Frecuente" o "Muy frecuentemente"  -->
 
-```{r conversa-consti, echo=FALSE, fig.aligN='center',fig.cap='¿Con qué frecuencia conversa usted sobre un posible cambio de la Constitución con amigos, familiares o conocidos?. Porcentaje que responde "Frecuente" o "Muy frecuentemente"'}
+```{r conversa-consti, fig.aligN='center',fig.cap='¿Con qué frecuencia conversa usted sobre un posible cambio de la Constitución con amigos, familiares o conocidos?. Porcentaje que responde "Frecuente" o "Muy frecuentemente"'}
 elsoc_panel_m1$c30_rec <- factor(with(elsoc_panel_m1, 
                                      case_when(c30 == 'Nunca' | c30 == 'Casi nunca' ~ 1,
                                                c30 == 'A veces' ~ 2,
@@ -71,7 +71,7 @@ g7.4
 
 <!-- ### 7.3 En Chile hay distintas opiniones sobre como cambiar la Constitución. Si se cambiara la Constitución, ¿cuál de las siguientes opciones representa mejor su opinión? -->
 
-```{r cambio-consti, echo=FALSE, fig.align='center',fig.cap='En Chile hay distintas opiniones sobre como cambiar la Constitución. Si se cambiara la Constitución, ¿cuál de las siguientes opciones representa mejor su opinión?'}
+```{r cambio-consti, fig.align='center',fig.cap='En Chile hay distintas opiniones sobre como cambiar la Constitución. Si se cambiara la Constitución, ¿cuál de las siguientes opciones representa mejor su opinión?'}
 g7.5 <- gr.alluvial.freq('c29', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019),
                          reverse_y=F, posicion_leyenda = 'top')
 g7.5
@@ -81,7 +81,7 @@ g7.5
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.5, 'var_y')`
 
 <!-- ### 7.4 ¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según tramo de edad. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"  -->
-```{r deacuerdo-consti, echo=FALSE, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según tramo de edad. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"'}
+```{r deacuerdo-consti, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según tramo de edad. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"'}
 g7.6 <- gr.line.freq.rec('c28', var_z = 'edadt', var_x = 'ola')
 g7.6
 ```
@@ -89,14 +89,14 @@ g7.6
 
 <!-- ### 7.5 ¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según nivel educacional. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" -->
 
-```{r deacuerdo-cons-educ, echo=FALSE, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según nivel educacional. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
+```{r deacuerdo-cons-educ, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según nivel educacional. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
 g7.7 <- gr.line.freq.rec('c28', var_z = 'educ', var_x = 'ola')
 g7.7
 ```
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.7, 'var_z')`
 
 <!-- ### 7.6 ¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según Posición política. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"  -->
-```{r deacuerdo-consti-pospol, echo=FALSE, fig.aligN='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según Posición política. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
+```{r deacuerdo-consti-pospol, fig.aligN='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según Posición política. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
 g7.6 <- gr.line.freq.rec('c28', var_z = 'edadt', var_x = 'ola')
 g7.6
 ```
@@ -119,7 +119,7 @@ baseCL$c28_rec <- factor(with(baseCL,
                                            'De acuerdo o Totalmente de acuerdo')) 
 ```
 
-```{r deacuerdo-perfiles, echo=FALSE,fig.cap="¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile? (2019), según Perfiles Ideológicos "}
+```{r deacuerdo-perfiles,fig.cap="¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile? (2019), según Perfiles Ideológicos "}
 g7.9 <- gr.bar.freq("c28_rec", var_x = "CL", data = baseCL, posicion = 'stack')
 g7.9
 ```
@@ -135,7 +135,7 @@ Estas variaciones en los grados de acuerdo de cambiar la actual Constitución en
 
 
 <!-- ### 7.8 Variaciones en grado de acuerdo respecto a cambiar la Constitución entre 2018 y 2019 -->
-```{r acuerdo-1819, echo=FALSE, fig.align='center',fig.cap="Variaciones en grado de acuerdo respecto a cambiar la Constitución entre 2018 y 2019"}
+```{r acuerdo-1819, fig.align='center',fig.cap="Variaciones en grado de acuerdo respecto a cambiar la Constitución entre 2018 y 2019"}
 g7.13 <- gr.alluvial.freq('acuerdo_cambio_constitucion', data = subset(elsoc_panel_m1, ola == 2018 | ola == 2019),
                           reverse_y=T)
 g7.13 
@@ -144,7 +144,7 @@ g7.13
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.13)`
 
 <!-- ### 7.9 Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según grupo etáreo -->
-```{r acuerdo-1819-edad, echo=FALSE, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según grupo etáreo"}
+```{r acuerdo-1819-edad, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según grupo etáreo"}
 
 g7.14 <- gr.bar.freq('acuerdo_cambio_constitucion', 'edad_w04', 
             ponderador = 'ponderador02_w04',
@@ -158,7 +158,7 @@ g7.14
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.14, NULL)`
 
 <!-- ### 7.10 Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según nivel educacional -->
-```{r acuerdo-1819-educ, echo=FALSE, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según nivel educacional"}
+```{r acuerdo-1819-educ, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según nivel educacional"}
 g7.15 <- gr.bar.freq('acuerdo_cambio_constitucion', 'educ_w04',
             ponderador = 'ponderador02_w04',
             data = elsoc_wide_m1,
@@ -172,7 +172,7 @@ g7.15
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.15, NULL)`
 
 <!-- ### 7.11 Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según Posición idelógica -->
-```{r acuerdo-1819-pospol, echo=FALSE, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según Posición idelógica"}
+```{r acuerdo-1819-pospol, fig.align='center',fig.cap="Variación en apoyo a cambiar la Constitución (entre 2018 y 2019), según Posición idelógica"}
 g7.16 <- gr.bar.freq('acuerdo_cambio_constitucion', 'pos_id_w04',
             ponderador = 'ponderador02_w04',
             data = elsoc_wide_m1,
@@ -195,7 +195,7 @@ No obstante lo anterior, las diferencias porcentuales entre grupos tienden a ser
 
 
 <!-- ### 7.12 Desigualdad de voz política en la participación en el proceso constituyente. ¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según tramos de edad  -->
-```{r particip-consti-edad, echo=FALSE, fig.align='center',fig.cap="Desigualdad de voz política en la participación en el proceso constituyente. ¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según tramos de edad"}
+```{r particip-consti-edad, fig.align='center',fig.cap="Desigualdad de voz política en la participación en el proceso constituyente. ¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según tramos de edad"}
 g7.18 <- gr.bar.freq.rec.list(c('participacion_2016', 'participacion_2019'), 'edadt', REC = 'Si',
                      label_x = c('Durante 2016', 
                                  'Durante 2019, Post 18/O'))
@@ -206,7 +206,7 @@ g7.18
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.18)`
 
 <!-- ### 7.13 ¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según nivel educacional -->
-```{r particip-consti-educ, echo=FALSE, fig.align='center',fig.cap="¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según nivel educacional"}
+```{r particip-consti-educ, fig.align='center',fig.cap="¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según nivel educacional"}
 g7.19 <- gr.bar.freq.rec.list(c('participacion_2016', 'participacion_2019'), 'educ', REC = 'Si',
                      label_x = c('Durante 2016', 
                                  'Durante 2019, Post 18/O'))
@@ -216,7 +216,7 @@ g7.19
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.19)`
 
 <!-- ### 7.14 ¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según posición ideológica -->
-```{r particip-consti-pospol, echo=FALSE, fig.align='center',fig.cap="¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según posición ideológica"}
+```{r particip-consti-pospol, fig.align='center',fig.cap="¿Ha participado en alguna instancia de discusión asociada al proceso de cambio de la Constitución?, según posición ideológica"}
 g7.20 <- gr.bar.freq.rec.list(c('participacion_2016', 'participacion_2019'), 'pos_id', REC = 'Si',
                      label_x = c('Durante 2016', 
                                  'Durante 2019, Post 18/O'))

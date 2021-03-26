@@ -13,7 +13,7 @@ En la Figura \@ref(fig:confl-total) se observa que en términos temporales las m
 
 
 <!-- ### 8.1 ¿Con qué frecuencia usted/alguien de su hogar se ha molestado o incomodado por problemas con sus vecinos? según ola de estudio -->
-```{r confl-total, echo=FALSE, fig.align='center', fig.cap='¿Con qué frecuencia usted/alguien de su hogar se ha molestado o incomodado por problemas con sus vecinos? según ola de estudio '}
+```{r confl-total, fig.align='center', fig.cap='¿Con qué frecuencia usted/alguien de su hogar se ha molestado o incomodado por problemas con sus vecinos? según ola de estudio '}
 
 g8.1 <- gr.bar.freq('confli.barrial.rec', posicion = 'stack', colores = c(0,.85,1))
 g8.1 
@@ -24,7 +24,7 @@ g8.1
 
 <!-- ### 8.2 Cambios en frecuencia de conflictos barriables -->
 
-```{r conf-cambios, echo=FALSE, fig.align='center', fig.cap='Cambios en frecuencia de conflictos barriables'}
+```{r conf-cambios, fig.align='center', fig.cap='Cambios en frecuencia de conflictos barriables'}
 g8.2 <- gr.alluvial.freq('confli.barrial.rec', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), colores = c(0,.85,1))
 g8.2 
 ```
@@ -35,7 +35,7 @@ Al revisar la distribución de las personas que declaran tener “siempre o much
 
 
 <!-- ### 8.3 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona geográfica. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".  -->
-```{r conf-wav-zon, echo=FALSE, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona geográfica. Porcentaje con conflictos barriables "Siempre" o "Muchas veces"'}
+```{r conf-wav-zon, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona geográfica. Porcentaje con conflictos barriables "Siempre" o "Muchas veces"'}
 g8.3 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "zona1", var_z = 'ola', REC = 'Muchas veces o siempre',
                 data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
 g8.3 
@@ -44,7 +44,7 @@ g8.3
 > **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N=  `r getN(g8.3, 'var_z')`
 
 <!-- ### 8.4 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona de residencia. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".  -->
-```{r conf-resid, echo=FALSE, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona de residencia. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".'}
+```{r conf-resid, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y zona de residencia. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".'}
 g8.4 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "estrato", var_z = 'ola', REC = 'Muchas veces o siempre',
                 data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
 g8.4 
@@ -54,7 +54,7 @@ g8.4
 
 
 <!-- ### 8.5 Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y quintiles de ingreso. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".  -->
-```{r conf-incomeq, echo=FALSE, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y quintiles de ingreso. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".'}
+```{r conf-incomeq, fig.align='center', fig.cap='Porcentaje con alta frecuencia de conflictos barriales, según ola del estudio y quintiles de ingreso. Porcentaje con conflictos barriables "Siempre" o "Muchas veces".'}
 g8.5 <- gr.bar.freq.rec("confli.barrial.rec", var_x = "quintil", var_z = 'ola', REC = 'Muchas veces o siempre',
                 data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), limits_y = c(0, .4)) 
 g8.5

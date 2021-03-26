@@ -28,7 +28,7 @@ elsoc_panel$sexismo_hostil <- c(as.numeric(elsoc_panel$g01_03) + as.numeric(elso
 ```
 
 <!-- ### 12.1 Sexismo benévolo y hostil, según sexo (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r sexismo-sexo,echo=FALSE, fig.align='center', fig.cap='Sexismo benévolo y hostil, según sexo (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r sexismo-sexo, fig.align='center', fig.cap='Sexismo benévolo y hostil, según sexo (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.1 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02', 'g01_03', 'g01_04'), var_z = 'm0_sexo',
                      label_x = c('Mujeres son más refinadas y con mejor gusto que los hombres',
                      'Mujeres debieran ser queridas y protegidas por los hombres',
@@ -47,7 +47,7 @@ Al analizar los niveles de sexismo benevolente por edad, se observan importantes
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g12.1, 'var_x')` 
 
 <!-- ### 12.2 Sexismo benévolo,según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r sexismo-edad,echo=FALSE, fig.align='center',fig.cap='Sexismo benévolo,según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r sexismo-edad, fig.align='center',fig.cap='Sexismo benévolo,según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 
 g12.2 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02'), 'edadt', 'm0_sexo', modo = 3,
                      label_list = c('Mujeres son más refinadas y con\n mejor gusto que los hombres',
@@ -60,7 +60,7 @@ g12.2
 
 
 <!-- ### 12.3 Sexismo hostil, según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r sexismoh-edad,echo=FALSE, fig.align='center',fig.cap='Sexismo hostil, según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r sexismoh-edad, fig.align='center',fig.cap='Sexismo hostil, según sexo y tramo de edad (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.3 <-   gr.bar.freq.rec.list(c('g01_03', 'g01_04'), 'edadt', 'm0_sexo', modo = 3,
                      label_list = c('Mujeres consiguen privilegios en nombre de igualdad',
                                  'Cuando mujeres son derrotadas limpiamente,\n se quejan de discriminación')) + theme(strip.text = element_text(size = rel(.8)))
@@ -75,7 +75,7 @@ El sexismo benévolo y hostil cambia sustantivamente según nivel de escolaridad
 
 <!-- ### 12.4 Sexismo benévolo y hostil, según nivel educacional (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
 
-```{r sexismo-educ,echo=FALSE, fig.align='center',fig.cap='Sexismo benévolo y hostil, según nivel educacional (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r sexismo-educ, fig.align='center',fig.cap='Sexismo benévolo y hostil, según nivel educacional (2019). Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.4 <- gr.bar.freq.rec.list(c('g01_01', 'g01_02', 'g01_03', 'g01_04'), var_z = 'educ',
                      label_x = c('Mujeres son más refinadas y con mejor gusto que los hombres',
                      'Mujeres debieran ser queridas y protegidas por los hombres',
@@ -94,7 +94,7 @@ La literatura especializada muestra que en general, son los hombres de quienes s
 Tal como se aprecia en la Figura \@ref(fig:expectativas-sexo), el 85,4% de los hombres está de acuerdo en que sus familias y amigos esperan que ellos sean una persona laboralmente exitosa. Esta cifra sin embargo cae sustantivamente en el caso de las mujeres llegando a un 75,6%. Según los estereotipos tradicionales de género, se presume que sean las mujeres y en menor proporción los hombres, quienes piensen que la familia y los amigos esperan que los hijos sean su primera prioridad en la vida. Los resultados de ELSOC no confirman esta hipótesis, revelando muy altas expectativas tanto en las mujeres como en los hombres (Figura \@ref(fig:expectativas-sexo)). 
 
 <!-- ### 12.5 Expectativas y Normas de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r expectativas-sexo, echo=FALSE, fig.align='center',fig.cap='Expectativas y Normas de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r expectativas-sexo, fig.align='center',fig.cap='Expectativas y Normas de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.5 <- gr.bar.freq.rec.list(c('g02_03', 'g02_04'), var_z = 'm0_sexo',
                      label_x = c('Mi familia y mis amigos esperan que sea una persona laboralmente exitosa',
                                  'Mi familia y mis amigos esperan que mis hijos sean mi primera prioridad'),
@@ -109,7 +109,7 @@ g12.5
 En cuanto a derechos y roles de género, la Figura \@ref(fig:derechos-sexo) revela que una muy baja proporción de hombres (16,6%) y mujeres (14,5%) está de acuerdo con la idea de que, en ausencia de trabajos disponibles, sean los hombres quienes deberían tener más derecho a un trabajo que las mujeres. Esta baja adhesión revela un distanciamiento importante de los roles estereotipados de género. Sin embargo, y en consonancia con los roles tradicionales de género, dicho hallazgo contrasta fuertemente con altísimo consenso que existe entre hombres y mujeres al pensar que la vida familiar sufre cuando la mujer tiene un trabajo a tiempo completo. Ambos datos dan cuenta de la ambivalencia que existe en la población respecto de la participación de la mujer en el mundo del trabajo y el impacto que produce ello en la vida familiar.  
 
 <!-- ### 12.6 Derechos y Roles de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r derechos-sexo,echo=FALSE, fig.align='center',fig.cap='Derechos y Roles de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r derechos-sexo, fig.align='center',fig.cap='Derechos y Roles de género (2019), según sexo del entrevistado. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.6 <- gr.bar.freq.rec.list(c('g01_05', 'g02_05'), var_z = 'm0_sexo',
                      label_x = c('Cuando no hay muchos trabajos disponibles, los hombres deberían tener más derecho a un trabajo que las mujeres',
                                  'En general, la vida familiar sufre cuando la mujer tiene un trabajo a tiempo completo'))
@@ -131,7 +131,7 @@ Finalmente, ELSOC revela la persistencia de una brecha salarial entre hombres y 
 
 
 <!-- ### 12.7 Porcentaje de trabajadores y trabajadoras por situación ocupacional (2019), según sexo del entrevistado -->
-```{r ocup-sexo,echo=FALSE, fig.align='center',fig.cap='Porcentaje de trabajadores y trabajadoras por situación ocupacional (2019), según sexo del entrevistado'}
+```{r ocup-sexo, fig.align='center',fig.cap='Porcentaje de trabajadores y trabajadoras por situación ocupacional (2019), según sexo del entrevistado'}
 g12.7 <- gr.bar.freq(var_x = 'm0_sexo', var_y = 'empleo', var_z = 'ola', posicion = 'stack', 
             data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
 g12.7
@@ -140,7 +140,7 @@ g12.7
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.7, 'var_z')` 
 
 <!-- ### 12.8 Porcentaje de trabajadores y trabajadoras no remunerados, según ola y sexo del entrevistado -->
-```{r ocup-sexo-ola,echo=FALSE, fig.align='center',fig.cap='Porcentaje de trabajadores y trabajadoras no remunerados, según ola y sexo del entrevistado'}
+```{r ocup-sexo-ola, fig.align='center',fig.cap='Porcentaje de trabajadores y trabajadoras no remunerados, según ola y sexo del entrevistado'}
 g12.8 <- gr.alluvial.freq('empleo', var_z = 'm0_sexo',
                        data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019),
                  posicion_leyenda = 'top')
@@ -150,7 +150,7 @@ g12.8
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.8)` 
 
 <!-- ### 12.9 Ingreso medio de ocupados y ocupadas a tiempo completo o parcial, según ola y sexo del entrevistado -->
-```{r jorparcial-sexo-ola,echo=FALSE, fig.align='center',fig.cap='Ingreso medio de ocupados y ocupadas a tiempo completo o parcial, según ola y sexo del entrevistado'}
+```{r jorparcial-sexo-ola, fig.align='center',fig.cap='Ingreso medio de ocupados y ocupadas a tiempo completo o parcial, según ola y sexo del entrevistado'}
 g12.9 <- gr.line.media('m13', var_x = 'ola', var_z = 'm0_sexo', 
               data = subset(elsoc_panel_m1, empleo == 'Trabajo remunerado'),
               limits_y = c(0,1000000),
@@ -168,7 +168,7 @@ El concepto de género es principalmente de orden cultural y social, pero tambi�
 Al preguntar por el grado de compromiso con personas del mismo sexo, se constatan diferencias importantes entre hombres y mujeres.  Son las mujeres (38%) en comparación a los hombres (22%) quienes se sienten más comprometidas con personas de su mismo sexo.  Es esperable que este resultado se relacione con la alta visibilidad que ha tenido el movimiento feminista, tanto en Chile como en el mundo, donde ha tomado fuerza el concepto y ejercicio de la sororidad, la cual refiere a la experiencia de las mujeres que conduce a la búsqueda de relaciones positivas y a la alianza existencial y política con otras mujeres para eliminar todas las formas de opresión y para empoderarlas. La sororidad es un pacto político entre pares [@lagarde_feminismo_2012]. 
 
 <!-- ### 12.10 Identidad de género (2019), según sexo. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo". -->
-```{r idgenero-sexo,echo=FALSE, fig.align='center',fig.cap='Identidad de género (2019), según sexo. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
+```{r idgenero-sexo, fig.align='center',fig.cap='Identidad de género (2019), según sexo. Porcentaje que responde "De acuerdo" o "Totalmente de acuerdo".'}
 g12.10 <- gr.bar.freq.rec.list(c('g02_01', 'g02_02'), var_z = 'm0_sexo',
                      label_x = c('El hecho de ser hombre/mujer es una parte importante de mi identidad',
                                   'Me siento más comprometido con las personas de mi mismo sexo que con personas del otro sexo'))
