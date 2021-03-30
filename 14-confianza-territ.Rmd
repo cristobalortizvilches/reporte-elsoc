@@ -30,7 +30,7 @@ En relación a la percepción de seguridad en los barrios, se puede constatar qu
 
 ```{r seguri-zona, fig.align='center',fig.cap='¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y zona geográfica. Suma de Respuestas "Seguro" o ”Muy Seguro".'}
 g10.3 <- gr.line.freq.rec("t10", var_x= "ola",var_w = "zona1", REC = c('Muy seguro', 'Seguro'))
-g10.3
+g10.3  
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.3)`
@@ -38,7 +38,7 @@ g10.3
 <!-- ### 10.4 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y nivel educacional. Suma de Respuestas "Seguro" o ”Muy Seguro". -->
 ```{r seguri-educ, fig.align='center',fig.cap='¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y nivel educacional. Suma de Respuestas "Seguro" o ”Muy Seguro".'}
 g10.4 <- gr.line.freq.rec("t10", var_x= "ola", var_w = "educ", REC = c('Muy seguro', 'Seguro'))
-g10.4
+g10.4  
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.4)`
@@ -46,7 +46,7 @@ g10.4
 <!-- ### 10.5 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y tramos de edad. Suma de Respuestas "Seguro" o ”Muy Seguro". -->
 ```{r seguri-edad, fig.align='center',fig.cap='¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio y tramos de edad. Suma de Respuestas "Seguro" o ”Muy Seguro".'}
 g10.5 <- gr.line.freq.rec("t10", var_w= "edadt",var_x= "ola", REC = c('Muy seguro', 'Seguro'))
-g10.5
+g10.5  
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.5)`
@@ -57,7 +57,7 @@ g10.5
 g10.6 <- gr.line.freq.rec("t10", var_x= "ola",var_z = "quintil", REC = c('Muy seguro', 'Seguro'),
                           data = subset(elsoc_panel_m1, quintil == 'Q1'| quintil == 'Q5'),
                           colores = c(.1,.66,-1))
-g10.6
+g10.6  
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.6)`
@@ -65,7 +65,7 @@ g10.6
 <!-- ### 10.7 ¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio e ideología política. Suma de Respuestas "Seguro" o ”Muy Seguro". -->
 ```{r seguri-ideolo, fig.align='center',fig.cap='¿Qué tan seguro o inseguro se siente en el barrio o vecindario donde usted vive? Según ola del estudio e ideología política. Suma de Respuestas "Seguro" o ”Muy Seguro".'}
 g10.7 <- gr.line.freq.rec("t10", var_x= "ola", var_w = "pos_id", REC = c('Muy seguro', 'Seguro'))
-g10.7
+g10.7  
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g10.7)`

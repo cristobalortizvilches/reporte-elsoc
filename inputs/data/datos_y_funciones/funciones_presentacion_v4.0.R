@@ -282,9 +282,9 @@ grafico <- function(eje_x = 'var_x', eje_color = 'var_y', eje_facet = 'var_z', d
                            size= tamano_letra/5)
   } else if (!no_label_texto) {
     ggp <- ggp + ggrepel::geom_text_repel(aes(label = as.character(formato_stat(stat))), 
-                                          size= tamano_letra/5,
+                                          size= tamano_letra/4.5, # Tamano de letra de LINEAS
                                           force = 2,
-                                          nudge_y = .015)
+                                          nudge_y = .015) 
   }
   
   # Etiquetas de eje X:
@@ -292,7 +292,7 @@ grafico <- function(eje_x = 'var_x', eje_color = 'var_y', eje_facet = 'var_z', d
     ggp <- ggp + scale_x_discrete(label = ajustar_texto(label_x)) +
       theme(axis.text.x = element_text(size = rel(ajustar_texto(label_x, return_tamano = TRUE))))
   } else {
-    ggp <- ggp + scale_x_discrete(labels = function(k) ajustar_texto(k)) +
+    ggp <- ggp + scale_x_discrete(labels = function(k) ajustar_texto(k)) + 
       theme(axis.text.x = element_text(size = rel(ajustar_texto(levels(getElement(data, eje_x)), return_tamano = TRUE))))
   }
   
@@ -741,7 +741,7 @@ gr.alluvial.freq <- function(var_y, var_z = NULL, data = elsoc_panel_m1, pondera
                             colores[3] == -1 ~ ifelse((colores[2] - seq(1:n)*(colores[2]-colores[1])/(n+1)) < .5, 'white', 'black'))
   ggp <- ggp + geom_text(data = freqs, aes(label = ifelse(stat<.03, '', scales::percent(stat, accuracy = .1, big.mark = '.', decimal.mark = ',' ))),
                          position = position_stack(vjust = .5), 
-                         size= tamano_letra/5,
+                         size= tamano_letra/3, #TAMANO DE LETRA ALUVIAL
                          show.legend = FALSE,
                          color = rep(negro_blanco, length(unique(freqs$var_x))*length(unique(freqs$var_z)))
                          )

@@ -39,11 +39,11 @@ pacman::p_load(knitr, kableExtra, dplyr,gridExtra,tidyverse,sjmisc,sjlabelled,st
 
 ```{r cargar objetos, include=FALSE, cache = FALSE}
 #Para la sección de clases latentes
-load("inputs/data/ACL_idpoli_bases.RData")
+load("inputs/data/ACL_idpoli_bases.RData") 
 #Mapa de variables + bases
-load("inputs/data/datos_y_funciones/datos_a_usar.RData")
+load("inputs/data/datos_y_funciones/datos_a_usar.RData")  
 # Funciones
-load("inputs/data/datos_y_funciones/funciones_a_usar.RData")
+load("inputs/data/datos_y_funciones/funciones_a_usar.RData")      
 ```
 
 

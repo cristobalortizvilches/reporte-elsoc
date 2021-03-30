@@ -35,7 +35,7 @@ La Figura \@ref(fig:depre-sexo) revela que las trayectorias de síntomas de depr
 g13.3 <- gr.line.freq.rec("depr", var_x = "ola", var_z ="m0_sexo", REC=c('Depresion Moderada', 'Depresion Moderada Severa a Severa'),
                  data = subset(elsoc_panel_m1, empleo != 'Otros'), limits_y = c(0,.5),
                  colores = c(.33,.66,-1))
-g13.3
+g13.3   
 ```
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g13.3)` 
 
@@ -55,8 +55,7 @@ g13.4 <- gr.line.freq.rec("depr", 'edadt', 'm0_sexo',
                  data= subset(elsoc_panel_m1, ola == 2019),
                  REC = c('Depresion Moderada', 'Depresion Moderada Severa a Severa'), limits_y = c(0,0.5),
                  colores = c(.33,.66,-1))
-g13.4
-
+g13.4   
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N=`r getN(g13.4, NULL)` 

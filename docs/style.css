@@ -1,7 +1,11 @@
 p.caption {
-  color: #777;
-  margin-top: 10px;
+/*    text-align: center !important; */
+    align-content: center;
+    color: #000000;
+    font-weight: bolder;
+    margin-top: 10px;
 }
+
 p code {
   white-space: inherit;
 }

@@ -4,10 +4,10 @@ library(survey)
 library(spatstat) #función weighted.median
 library(sticky)
 
-dir_carlos <- "C:/Users/pgmej/Dropbox/RCS2020"
-dir_edgardo <- "C:/Users/edgar/Dropbox/ELSOC/4_Presentaciones_de_Lanzamientos_y_Eventos_Publicos/15_Lanzamiento_Global_2020"
+# dir_carlos <- "C:/Users/pgmej/Dropbox/RCS2020"
+# dir_edgardo <- "C:/Users/edgar/Dropbox/ELSOC/4_Presentaciones_de_Lanzamientos_y_Eventos_Publicos/15_Lanzamiento_Global_2020"
 
-setwd(dir_edgardo)
+# setwd(dir_edgardo)
 # load("Presentacion/RCS2020 - Presentacion final/funciones_y_otros/datos_a_usar.RData")
 
 # load("Presentacion/RCS2020 - Presentacion final/funciones_y_otros/datos_a_usar.RData")
@@ -694,7 +694,7 @@ gr.alluvial.freq <- function(var_y, var_z = NULL, data = elsoc_panel_m1, pondera
                              reverse_y = FALSE, reverse_x = FALSE, reverse_z = FALSE, 
                              colores = c(0, .9, -1),
                              colores_tipo = 'viridis',
-                             tamano_letra = 1) {
+                             tamano_letra = 4) {
   
   datos.grafico <- datos.stat(var_y = var_y, var_x = 'ola', var_z = var_z, var_w = 'idencuesta', data = data, ponderador = ponderador,
                      stat = 'freq', REC = REC, suma100 = 'xz', full = T, reverse_y = reverse_y, reverse_x = reverse_x, reverse_z = reverse_z)
@@ -709,7 +709,7 @@ gr.alluvial.freq <- function(var_y, var_z = NULL, data = elsoc_panel_m1, pondera
     filter(var_x %in% datos.grafico$var_x)
   
   # Ajustar tamaño de letra
-  tamano_letra <- 10*tamano_letra
+  tamano_letra <- 20*tamano_letra
   
   # Colores de eje color 
   if (length(unique(datos.grafico$var_y)) == 2 & identical(colores, c(0, .9, -1))) {
@@ -741,7 +741,7 @@ gr.alluvial.freq <- function(var_y, var_z = NULL, data = elsoc_panel_m1, pondera
                             colores[3] == -1 ~ ifelse((colores[2] - seq(1:n)*(colores[2]-colores[1])/(n+1)) < .5, 'white', 'black'))
   ggp <- ggp + geom_text(data = freqs, aes(label = ifelse(stat<.03, '', scales::percent(stat, accuracy = .1, big.mark = '.', decimal.mark = ',' ))),
                          position = position_stack(vjust = .5),
-                         size= tamano_letra/5,
+                         size= tamano_letra/1,#AJUSTAR SIZE de LETRA
                          show.legend = FALSE,
                          color = rep(negro_blanco, length(unique(freqs$var_x))*length(unique(freqs$var_z)))
                          )
@@ -862,7 +862,7 @@ gr.bar.n <- function(var_y, var_x = 'ola', var_z = NULL, data = elsoc_panel_m1, 
 ################################################
 #--------------GUARDAR OBJETOS DEL ENVIROMENT EN ARCHIVO-----------------
 save(datos.stat, grafico, ajustar_texto, getN, gr.bar.media.list, gr.bar.freq, gr.bar.freq.rec, gr.bar.media, gr.line.freq, gr.line.freq.rec, gr.line.media, gr.alluvial.freq, tb.freq, tb.freq.rec, gr.bar.freq.list, gr.bar.freq.rec.list, gr.line.freq.rec.list, cortar_texto, gr.bar.n, 
-     file = "datos_y_funciones/funciones_a_usar.RData")
+     file = "old/datos_y_funciones/funciones_a_usar.RData")
 
 
 #---------------LIMPIAR ENVIROMENT SALIDA------------------

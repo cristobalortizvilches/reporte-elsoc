@@ -14,7 +14,7 @@ Tal como lo revela la Figura \@ref(fig:amen1-wave), se ha visto una caída siste
   
 g14.1 <- gr.line.freq.rec('amenaza_realista', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
-g14.1
+g14.1    
 ```
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.1)` 
 
@@ -23,7 +23,7 @@ g14.1
 ```{r amen2-wave, fig.align='center',fig.cap='"Con la llegada de migrantes, Chile está perdiendo su identidad", según ola y origen de migrantes. Porcentaje de personas que responden "De acuerdo" o Totalmente de acuerdo".'}
 g14.2 <- gr.line.freq.rec('amenaza_simbolica', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
-g14.2
+g14.2    
 ```
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.2)`
 
@@ -33,7 +33,7 @@ Al comparar los niveles de niveles de amenaza realista y simbólica según grupo
 ```{r confmig-wave, fig.align='center',fig.cap='Confianza en migrantes, según ola y origen de migrantes. Porcentaje de personas que responden "Bastante" o "Mucha confianza".'}
 g14.3 <- gr.line.freq.rec('confianza', var_x = 'ola', var_z = 'migrantes',
                 data = elsoc_panel, limits_y = c(0,.8), colores = c(0,.66,-1))
-g14.3
+g14.3    
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g14.3)`

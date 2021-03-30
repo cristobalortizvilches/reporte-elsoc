@@ -155,7 +155,7 @@ g12.9 <- gr.line.media('m13', var_x = 'ola', var_z = 'm0_sexo',
               data = subset(elsoc_panel_m1, empleo == 'Trabajo remunerado'),
               limits_y = c(0,1000000),
               colores = c(.33,.66,-1))
-g12.9
+g12.9   
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g12.9)` 

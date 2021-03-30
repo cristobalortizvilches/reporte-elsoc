@@ -44,7 +44,7 @@ g7.1 <- gr.line.freq.rec.list(c('c26_rec', 'c27_rec', 'c28_rec'), 'ola',
                                      'Estoy de acuerdo o muy de acuerdo con que se cambie la constitución'),
                       colores = c(0,.66,-1))
 
-g7.1
+g7.1  
 
 ```
 
@@ -74,7 +74,7 @@ g7.4
 ```{r cambio-consti, fig.align='center',fig.cap='En Chile hay distintas opiniones sobre como cambiar la Constitución. Si se cambiara la Constitución, ¿cuál de las siguientes opciones representa mejor su opinión?'}
 g7.5 <- gr.alluvial.freq('c29', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019),
                          reverse_y=F, posicion_leyenda = 'top')
-g7.5
+g7.5  
 
 ```
 
@@ -83,7 +83,7 @@ g7.5
 <!-- ### 7.4 ¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según tramo de edad. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"  -->
 ```{r deacuerdo-consti, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según tramo de edad. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"'}
 g7.6 <- gr.line.freq.rec('c28', var_z = 'edadt', var_x = 'ola')
-g7.6
+g7.6   
 ```
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.6, 'var_z')`
 
@@ -91,14 +91,14 @@ g7.6
 
 ```{r deacuerdo-cons-educ, fig.align='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según nivel educacional. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
 g7.7 <- gr.line.freq.rec('c28', var_z = 'educ', var_x = 'ola')
-g7.7
+g7.7   
 ```
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.7, 'var_z')`
 
 <!-- ### 7.6 ¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según Posición política. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo"  -->
 ```{r deacuerdo-consti-pospol, fig.aligN='center',fig.cap='¿En qué medida está usted de acuerdo o en desacuerdo con que se cambie la Constitución en Chile?, según Posición política. Porcentaje que responde que está "De acuerdo" o "Muy de acuerdo" '}
 g7.6 <- gr.line.freq.rec('c28', var_z = 'edadt', var_x = 'ola')
-g7.6
+g7.6  
 ```
 >  **Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N = `r getN(g7.6, 'var_z')`
 

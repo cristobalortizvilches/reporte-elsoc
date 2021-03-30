@@ -54,7 +54,7 @@ g2.3
 ```{r idcoal-aluv, fig.align='center',fig.cap="Cambios en identificación con coaliciones políticas, entre 2016 y 2019"}
 
 g2.4 <- gr.alluvial.freq('idcoal', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2018 | ola == 2019))
-g2.4
+g2.4 
 
 ```
 
@@ -74,7 +74,7 @@ g2.5
 <!-- ### 2.6 Cambios en Posición ideológica, según ola de estudio -->
 ```{r pos-id, fig.align='center',fig.cap="Cambios en Posición ideológica, según ola de estudio"}
 g2.6 <- gr.alluvial.freq( 'pos_id', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019))
-g2.6
+g2.6 
 ```
 
 
@@ -92,7 +92,7 @@ g2.7
 <!-- ### 2.8 Cambios en identificación con algún partido o coalición política, según Ola del estudio -->
 ```{r id-sin-by-wave, fig.align='center',fig.cap="Cambios en identificación con algún partido o coalición política, según Ola del estudio"}
 g2.8 <- gr.alluvial.freq('id_sin', data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), posicion_leyenda = 'top')
-g2.8
+g2.8 
 ```
 
 

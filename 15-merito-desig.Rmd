@@ -20,7 +20,7 @@ g11.1
 <!-- ### 11.2 Cambios de Clase social subjetiva entre 2016 y 2019 -->
 ```{r ess-wave, fig.align='center',fig.cap='Cambios de Clase social subjetiva entre 2016 y 2019'}
 g11.2 <- gr.alluvial.freq("clase.sub", data = subset(elsoc_panel_m1, ola == 2016 | ola == 2019), reverse_y=T)
-g11.2
+g11.2 
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.2)` 
@@ -37,8 +37,8 @@ g11.3
 <!-- ### 11.4  Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019) -->
 ```{r esshijos-ess, fig.align='center',fig.cap='Si usted tiene actualmente hijos o si los tuviera en el futuro, ¿dónde cree usted que se ubicarían ellos?, según Clase social subjetiva (2019)'}
 g11.4 <- gr.bar.freq('clase.sub.hijos', 'clase.sub', data = subset(elsoc_panel, ola == 2019),
-            posicion = 'stack', reverse_y = T, titulo_x = 'Clase social subjetiva propia')
-g11.4
+            posicion = 'stack', reverse_y = T, titulo_x = 'Clase social subjetiva propia')  
+g11.4 
 ```
 
 >**Nota:** Resultados Ponderados (con Diseño Muestral Complejo). N= `r getN(g11.4, NULL)` 
@@ -63,7 +63,7 @@ g11.5 <- gr.line.freq.rec.list(c('c18_09_rec', 'c18_10_rec', 'd05_02_rec', 'd05_
                                       'Personas son recompensadas por su inteligencia',
                                       'Educación es importante para surgir en la vida',
                                       'Trabajo duro es importante para surgir en la vida'),
-                      colores = c(0, .66, -1))
+                      colores = c(0, .66, -1))  
 g11.5
 
 ```
